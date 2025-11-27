@@ -1,0 +1,96 @@
+<script>
+
+var name = "Rajendra"
+console.log(name)     //Rajendra
+console.log(name[1])  //a
+
+//printing individual charecters of a string
+// for(var i = 0; i <= name.length - 1; i++){
+//     console.log(name[i])   //print individual single charecter
+// }
+
+// var name = "Rajendra"
+// console.log(name[0])
+// name[0] = "C"
+// console.log(name)  //Rajendra
+// name = "Chary"
+// console.log(name) //Chary
+
+// var ar = [10, 20, 30]
+// var br = [10, 20, 30]
+// var cr = ar
+// console.log(ar == br)  //false no 2 arrays are not equal
+// console.log("ar::", ar) //[10, 20, 30]
+// console.log("br::", br) //[10, 20, 30]
+// console.log("cr::", cr) //[10, 20, 30]
+
+// ar[1] = 200
+// console.log("ar::", ar) //[10, 200, 30]
+// console.log("br::", br) //[10, 20, 30]
+// console.log("cr::", cr) //[10, 200, 30]
+
+
+var ar = [10, 20, 30, [40, 50]]
+var br = [10, 20, 30]
+var cr = ar
+console.log("ar::", ar) //[10, 20, 30 [400, 50]]
+console.log("br::", br) //[10, 20, 30]
+console.log("cr::", cr) //[10, 20, 30 [400, 50]]
+
+console.log(JSON.stringify(ar))  //[10,20,30,[40,50]]
+
+ar[3][0] = 400
+console.log("ar::", ar) //[10, 20, 30 [400, 50]]
+console.log("br::", br) //[10, 20, 30]
+console.log("cr::", cr) //[10, 20, 30 [400, 50]]
+
+var ab = 100
+var bc = 100
+console.log(ab === bc)  //true
+
+var ab = "Raj"
+var bc = "Raj"
+console.log(ab === bc)  //true
+
+var ab = true
+var bc = true
+console.log(ab === bc)  //true
+
+var ab = [10, 20]
+var bc = [10, 20]
+console.log(ab === bc)  //false
+
+
+
+
+</script>
+
+<!--
+strings
+
+    Rajendra is string assigned to a variable name
+    we can access the individual charecter using index 
+    a string is a immutable array of charecters
+    a string has length also
+
+    strings are immutable means
+        we can access individual charecters of a string 
+        but we can not change or modify the individual charecter of a string
+        but we can replace a string and assign to the same variable
+
+    why thi strings immutable
+
+    when we are modifying the array it will effect from next line of midification.
+    javascript execute line by line
+
+    what is in the ar var ar = [10, 20, 30]???
+        ar is holding the reference of the array.
+    
+    reference types are 
+        arrrays, object literals, functions
+
+console.log(ab === bc)  //true 
+    comparing the referencial equality of 2 numbers
+
+
+-->

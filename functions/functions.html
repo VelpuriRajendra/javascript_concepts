@@ -1,0 +1,181 @@
+<script>
+    //factorial
+    var n = 5
+    var f = 1
+    for(var i = n; i >= 1; i --){
+        f = f*i
+    }
+    console.log(f)  //120
+
+    // add(10, 20)   //reference error cause trying to access the undeclared function
+
+
+    function addit(a, b){
+        var c = a + b
+        console.log(c)   //30
+    }
+    addit(10, 20)
+
+
+
+
+    function sub(a, b){
+        var c = a - b
+        console.log(c)  //5
+    }
+    var x = sub(10, 5)
+    console.log(x)  //undefined
+
+    function sub1(a, b){
+        var c = a - b
+        return c
+    }
+    var x = sub1(10, 5)
+    console.log(x)  //undefined
+
+    var sub3 = function(a, b){
+        console.log(a - b) 
+    }
+    sub3(100, 50)
+    
+
+
+
+
+    //hoisting
+
+    console.log(addition(5, 5))  //10
+    function addition(a, b){
+        return a + b
+    }
+    console.log(addition(5, 5))  //10
+
+
+    console.log(xx)  //undefined
+    var xx = 10                 //initialization
+    console.log(xx)  //10
+
+
+
+    // ss(100, 200)  //type 
+    console.log(ss)   //undefined
+    var ss = function(a,b){
+        console.log(a+b)
+    }
+    ss(100, 100)  //200
+    console.log(ss)   //function
+
+
+
+    (function(){
+
+    })()
+
+    function test(){
+        console.log("iam test function")
+       }
+       test()  //calling function
+       var x = test() //the test fun returned value assigned to x
+       console.log(x) //undefined
+
+       function test1(){
+        console.log("iam test function")
+        return 100
+       }
+       test()  //calling function
+       var x = test() //the test fun returned 100
+       console.log(x) //100
+
+       function test2(){
+        console.log("iam test function")
+       }
+       var x = 100 //the test fun returned 100
+       x = test2()
+       console.log(x) //undefined
+
+        function test3(){
+        console.log("iam test function")
+       }
+       console.log(test3) //test3 is identifier which having the function defination consoled a function
+       var x = test3  //asigning a function defination to x
+       x() // calling a function
+
+
+
+</script>
+
+<!--
+what is a function and why ??
+
+function reusibility is w ecan write a logic with in the function
+and where we need that logic we can simply call that function.
+
+function Raj(arguments){
+
+}
+Raj(parameters)
+        we can create a function with function key word 
+        function identified or function name
+        function body  -- we can write logic within the function body
+        function call
+        function arguments
+        function parameters
+        the entire function call function defination
+
+evrything work based on the function logics when we call the function that work happened
+
+trying to call the undeclared function so reference error happened that function not in the memory
+
+ function sub(a, b){
+        var c = a - b
+        console.log(c)  //5
+    }
+    var x = sub(10, 5)
+    console.log(x)  //undefined
+    we are storing the function result value in the x variable so function not returning anything 
+    so undefined we will get
+    by default function return undefined
+
+function types??
+    function defination
+    variable function / function expression
+    ananymous function
+        which functions does not have any names only reference to the variables
+    immidiate execution function / self excecution functions
+    call back functions
+    first class functions
+
+what is the diff be normal function & function expression??
+
+
+hoisting
+    is the only variable declarations and function definations to the top before execution 
+
+declaration
+    declaring a variable with out assigning any value
+    var x;
+    initialzation assing a value to the variable while declaring
+    var x = 100;
+
+
+
+   ss(100, 200)  //type error
+    var ss = function(a,b){
+        console.log(a+b)
+    }
+    ss(100, 100)  //200
+    the variables and function definations are hoisted
+    ss hoisted as varible not as function
+    so when line execution stats the ss is variable not function so reference error comes
+
+
+factorial of 5 is 5*4*3*2*1
+
+ncr npr anagram
+
+type error is we have the variable in our memory but not calling proporly
+reference error is we have to call the variable does not exist in the memory
+
+functions return undefined by default
+
+-->

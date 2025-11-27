@@ -1,0 +1,206 @@
+<script>
+
+    //sort()
+    var ar = [1,2,20,10,11,3,33,23]
+    var sr = ar.sort()
+    console.log(ar)  //[1, 10, 11, 2, 20, 23, 3, 33]
+    console.log(sr)  //[1, 10, 11, 2, 20, 23, 3, 33]
+
+    var ar = [1,2,20,10,11,3,33,23]
+    var sr = ar.sort(function(a, b){
+        if(a > b){
+            return 1
+        }else{
+            return -1
+        }
+    })
+    console.log(ar)  //[1, 2, 3, 10, 11, 20, 23, 33]
+    console.log(sr)  //[1, 2, 3, 10, 11, 20, 23, 33]
+
+    const peoples = [
+        { firstName: "Rajendra", lastName: "chary", age: 28 },
+        { firstName: "Sai", lastName: "kiran", age: 26 },
+        { firstName: "Aruth", lastName: "chary", age: 19 },
+        { firstName: "Rajendra", lastName: "chary", age: 29 },
+        { firstName: "Sai", lastName: "kiran", age: 22 }
+    ];
+    var srr = peoples.sort(function(a, b){
+        if(a.age > b.age){
+                return 1
+        }
+        else{
+            return -1
+        }
+    })
+    console.log(peoples)
+    console.log(srr)
+
+
+    //REDUCE(accumulater function)
+
+    var r = [1, 2, 3, 4, 5]
+    r.reduce(function(a, b){
+        console.log("a", a)
+        console.log("b", b)
+    }, 0)
+
+    var r = [1, 2, 3]
+    r.reduce(function(a, b){
+        console.log("a", a)
+        console.log("b", b)
+        return "Raj"
+    }, 10)
+
+    var r = [1, 2, 3]
+    var rf = r.reduce(function(a, b){
+        console.log("a", a)
+        console.log("b", b)
+        return "Raj"
+    }, 10)
+    console.log(rf)  //Raj
+
+    //finding sum of all the numbers array
+    var r = [1, 2, 3, 4, 5]
+    var sum = r.reduce(function(a, b){
+        return a + b
+    }, 0)
+    console.log(sum) //15
+
+
+
+    //forEach
+
+     var r = [1, 2, 3, 4, 5]
+     r.reverse().forEach(function(a){
+        console.log(a)   //5 4 3 2 1 
+     })
+     //original array got modified
+     console.log(r) //[5, 4, 3, 2, 1]
+
+       var r = [1, 2, 3, 4, 5]
+     r.toReversed().forEach(function(a){
+        console.log(a)   //5 4 3 2 1 
+     })
+     console.log(r) //[1, 2, 3, 4, 5]
+
+     //find()
+
+    const people = [
+        { firstName: "Rajendra", lastName: "chary" },
+        { firstName: "Sai", lastName: "kiran" },
+        { firstName: "Aruth", lastName: "chary" },
+        { firstName: "Rajendra", lastName: "chary" },
+        { firstName: "Sai", lastName: "kiran" }
+    ];
+    var selectedP = people.find(function(person){
+        if(person.firstName == "Rajendra"){
+            return true
+        }
+    })
+    console.log(selectedP) //{firstName: 'Rajendra', lastName: 'chary'}
+
+
+    //filter()
+
+     const people1 = [
+        { firstName: "Rajendra", lastName: "chary", age: 28 },
+        { firstName: "Sai", lastName: "kiran", age: 26 },
+        { firstName: "Aruth", lastName: "chary", age: 19 },
+        { firstName: "Rajendra", lastName: "chary", age: 29 },
+        { firstName: "Sai", lastName: "kiran", age: 22 }
+    ];
+    var selectedP = people1.filter(function(person){
+        if(person.firstName == "Rajendra"){
+            return true
+        }
+    })
+    console.log(selectedP) //return the all matched elements reutn in array
+
+    var mAr = [1, 2, 4, 5]
+    var rAr = mAr.map((val)=>{
+
+    })
+    console.log(rAr) //[undefined, undefined, undefined, undefined]
+
+    var mAr = [1, 2, 4, 5]
+    var rAr = mAr.map((val)=>{
+        return val>=5
+    })
+    console.log(rAr) //[false, false, false, true]
+</script>
+
+<!---
+call back function
+    is a function which we are passing to anethor function as a argument
+
+first class function
+    is a function which accepting a function as a parameter
+
+sort(compare function)
+    basic sort method compared the elements as string
+    so we can pass a compare function to sort method it will proces the data properly 
+    modified the original array
+
+toSorted()
+    does not modify the original array
+
+reduce(accumulater function)
+    accumulation is summing all the values and adding
+    var rf = r.reduce(funciton(a, b){}, 0) 
+    very first time the 0 will be assigned to the a & arrray element assigned to the b
+    second iteration the returned value will be assigned to a and next element assigned to b
+
+    var r = [1, 2, 3, 4, 5]
+    r.reduce(function(a, b){
+        console.log("a", a)
+        console.log("b", b)
+    }, 0)
+    iterates r length times
+    1 - a = 0 & b = 1 reduce not return anything by default function return undefined
+    2 - a = undefined & b = 2
+    3 - a = undefined & b = 3
+    4 - a = undefined & b = 4
+    5 - a = undefined & b = 5
+
+    var r = [1, 2, 3]
+    r.reduce(function(a, b){
+        console.log("a", a)
+        console.log("b", b)
+        return "Raj"
+    }, 10)
+    iterates r length times
+    1 - a = 10 & b = 1 reduce  return Raj so next time a assigned with Raj
+    2 - a = Raj & b = 2
+    3 - a = Raj & b = 3
+
+
+    var r = [1, 2, 3]
+    var rf = r.reduce(function(a, b){
+        console.log("a", a)
+        console.log("b", b)
+        return "Raj"
+    }, 10)
+    console.log(rf)  //Raj
+    the last iteration / last element assigned to reducer method that time what is the value function 
+    returning that value will be stored in the rf variable
+
+
+forEach(iterator function)
+    is used to iterate and print the values
+    it does not return anything undefined
+
+find()
+    is used to get the matched result 
+    it return only first matched object 
+    if the condition is matched it will stop the rest of the execution  
+
+filter(compare function)
+    is used to get the filtered result 
+    it will return all the resulkt values in the array
+    it will iterates all the elements in the target array if matched elements are not present
+
+map(transform function)
+
+
+
+-->

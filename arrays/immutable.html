@@ -1,0 +1,52 @@
+<script>
+    const a = [10, 20]
+    a.push(30)
+    console.log(a)  //[10,20, 30]  it is not immutable
+
+    let ar = [10, 20, 30]
+    Object.freeze(ar)
+    // ar.push(40)   //type error
+    // ar[0] = 100 we can not modify the elements also
+    // console.log(ar)
+    // console.log(ar[0])  //but we can access the elements in the immutable array
+
+    ar = [...ar, 40]
+    console.log(ar) //[10,20, 30, 40]
+
+    let arr = [10, 20, 30]
+    Object.seal(arr)
+    // arr.push(1000)
+    // console.log(arr) error
+    arr[0] = 100  //we can not add new values or delete vales but we can modify the elements
+    console.log(arr)
+
+
+
+
+</script>
+<!--
+immutable   
+    we can not modify the values in the memory location
+
+when we declare a variable using const that variable we can not reassign and redeclare but we can modify the 
+    value to the canst variables 
+array is the non-promitive data type
+
+const a = [10, 20] we are assigning a array to a const variable 
+
+creating an immutable array
+    let ar = [10, 20, 30]
+    Object.freeze(ar)
+    ar.push(40)   //type error
+    console.log(ar)
+    console.log(ar[0])  //but we can access the elements in the immutable array
+
+     ar = [...ar, 40]
+    console.log(ar) //[10,20, 30, 40]
+        reassigning the new array to ar and in that new arrray spreading the current values and adding the new value
+
+in the javascript evrything considered as an object
+
+seal()
+method not allow to add or delete the elements we can only modify the elements
+-->

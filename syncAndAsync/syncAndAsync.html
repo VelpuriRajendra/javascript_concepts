@@ -1,0 +1,74 @@
+<script>
+    function fun() {
+        for (var i = 0; i <= 900000000; i++) {
+
+        }
+        console.log(i)
+    }
+    fun()
+    console.log("i execute after the fun function execution completed")
+
+    console.log("Line 1")                           //1
+    setTimeout(()=>{console.log("Line 2")}, 4000)   //6
+    console.log("Line 3")                           //2
+    setTimeout(()=>{console.log("Line 4")}, 3000)   //5
+    console.log("Line 5")                           //3
+    setTimeout(()=>{console.log("Line 6")}, 2000)   //4
+
+    console.log("Line 1")            //1
+    setTimeout(() => {
+        console.log("Line 2")         //4   
+    }, 1);
+    sum = 0
+    for(var i = 0; i <=900000; i++){
+        sum+= i
+    }
+    console.log(sum)                  //2
+    console.log("Line 4")             //3
+
+</script>
+
+<!-- 
+Concurrency:
+Concurrency is executing multiple works/tasks at a time/parallelly.
+Javascript is a single thread language
+Execute code synchronously line by line
+
+Asynchronous code will execute once the synchronous code execution completed
+Asynchronous functions are the non-blocking functions 
+these functions are execute after the sync function execution
+Async functions are the promised based functions
+
+Synchronous means executes line by line
+Synchronous functions are the blocking functions 
+
+we have async functions
+    setTimeOut
+    async and await
+    promises
+    fetch    
+setTimeOut
+    setTimeOut is default asynch function in nature having one callback function and time
+    the setTimeOut is first class function and cb function will excute after the give time complted
+
+    console.log("Line 1")                           //1
+    setTimeout(()=>{console.log("Line 2")}, 4000)   //6
+    console.log("Line 3")                           //2
+    setTimeout(()=>{console.log("Line 4")}, 3000)   //5
+    console.log("Line 5")                           //3
+    setTimeout(()=>{console.log("Line 6")}, 2000)   //4
+    
+
+    console.log("Line 1")            //1
+    setTimeout(() => {
+        console.log("Line 2")         //4   
+    }, 1);
+    sum = 0
+    for(var i = 0; i <=900000; i++){
+        sum+= i
+    }
+    console.log(sum)                  //2
+    console.log("Line 4")             //3
+    the setTimeOut function will execute once sync code execution was completed 
+
+-->

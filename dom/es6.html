@@ -1,0 +1,171 @@
+<script>
+    var a = 10, b = 20, c = 30
+    var [x, y, z] = [10, 20, 30]   //variable distructuring
+    console.log(x, y, z)
+
+
+    var ar = [10, 20, 30, 40, 50, 60]
+    var [p, q, , r] = ar
+    console.log(p, q, r)  //10 20 40
+
+    var ar = [10, 20, 30, 40, 50, 60]
+    var [p, q, , ...r] = ar  //spred operator
+    console.log(p, q, r)  //10 20 [40, 50, 60]
+
+
+    var ob = {FirstName: "Rajendra",
+            lastName: "Chary",
+            age: 28,
+            vill: "Appt",
+            tech:{
+                tech1: "Javascript",
+                tech2: "ReactJs"
+            }
+        }
+
+    var {FirstName, age, vill, lastName, tech:{tech1, tech2:val}, sname} = ob
+    console.log(FirstName)  //Rajendra
+    console.log(age)       //28
+    console.log(vill)      //Appt
+    console.log(lastName)  //Chary
+    console.log(tech1)   //Javascript
+    console.log(val)   //ReachJs
+    console.log(sname)   //undefined
+    console.log(...ob)  //type error
+
+
+
+    var aa = 100
+    var bb = 200
+    var cc = 300
+    var [aa, bb, cc] = [bb, cc, aa]
+    console.log(aa, bb, cc)  //200 300 100
+
+
+
+    function fun(a, b, ...c){
+        console.log(a)  //1
+        console.log(b)  //2
+        console.log(c)  //[3, 4, 5, 6]
+    }
+    fun(1, 2, 3, 4, 5, 6)
+
+
+    var ar = [10, 20, 30, 40]
+    console.log(ar)     //[10, 20, 30, 40]
+    console.log(...ar)  //10 20 30 40
+
+    var br = [ar]
+    console.log(br)
+    console.log(br[0])
+    console.log(br[2]) //undefined
+    console.log(br[0][1])  //20
+
+    var cr = [...ar]
+    cr.push(50)
+    console.log(ar)
+    console.log(cr)
+
+
+
+    var a = [1, 3, 5]
+    var b = [2, 4, 6]
+    var c = a.concat(b)
+    var c = [...a, ...b]
+    console.log(c)
+
+
+    //pushing a new value using distructure
+    var a = [1, 3, 5]
+    a = [...a, 6]
+    console.log(a)  //[1, 3, 5, 6]
+
+
+
+
+</script>
+<!--
+in the javascript we can maintain data as immutable
+we can replace the new data to the variables 
+
+distructuring
+    variable distructuring
+        var [x, y, z] = [10, 20, 30]   
+        console.log(x, y, z)
+
+
+    array distructuring
+        var ar = [10, 20, 30, 40, 50, 60]
+        var [p, q, , r] = ar
+        console.log(p, q, r)
+        by giving the space we can skip the value to assign
+
+    object distructuring
+    var ob = {FirstName: "Rajendra",
+            lastName: "Chary",
+            age: 28,
+            vill: "Appt"
+        }
+
+    var {FirstName, age, vill, lastName} = ob
+    console.log(FirstName)  //Rajendra
+    console.log(age)       //28
+    console.log(vill)      //Appt
+    console.log(lastName)  //Chary
+
+    no need to follow the order
+
+
+we can swap numbers using distructuring
+    var aa = 100
+    var bb = 200
+    var cc = 300
+    var [aa, bb, cc] = [bb, cc, aa]
+    console.log(aa, bb, cc)  //200 300 100
+
+
+
+
+spread operator
+    spread operator with rest parameter write like ...c 
+     function fun(a, b, ...c){   ...c rest parameter
+        console.log(a)  //1
+        console.log(b)  //2
+        console.log(c)  //[3, 4, 5, 6]
+    }
+    fun(1, 2, 3, 4, 5, 6)
+
+
+    var ar = [10, 20, 30, 40]
+    console.log(...ar)  //10 20 30 40
+        it will give you the elements spreading from the array
+
+    we concat arrays using spread operator
+
+
+how many ways you can duplicate an array
+    spread operator /  distructuring
+    foreach
+    map
+    filter  
+    reduce
+    for loop
+    json.parse(json.stringify(ar))
+    slice
+    concat
+    
+
+
+
+
+    let & const
+    arrow function
+    multi-line strings
+    default parameters
+    template literals
+    distructuring
+    object literals
+    promises
+    classes
+    modules
+-->

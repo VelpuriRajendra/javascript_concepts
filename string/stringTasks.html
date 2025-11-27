@@ -1,0 +1,31 @@
+<script>
+     function SmallestWord(param){
+        var words = param.split(" ")
+        console.log(words)
+        var smallword = words[0]
+        for(var i = 0; i < words.length; i++){
+            if(smallword.length > words[i].length){
+                smallword = words[i]
+            }
+        }
+        return smallword
+     }
+     console.log(SmallestWord("Hi I am Rajendra"))
+
+     function Palindram(param){
+        var revPar = param.split("").reverse().join("").toLowerCase()
+        if(param.toLowerCase() === revPar){
+            console.log("PAlindram")
+        }else{
+            console.log("Not Palindra")
+        }
+     }
+     Palindram("Rajar")
+
+     
+</script>
+
+<!-- 
+finding smallest word 
+reverse a string
+-->

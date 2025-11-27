@@ -1,0 +1,89 @@
+<body>
+    <button onclick="alert('Hi')">Click me for alert</button>
+    <button onclick="console.log('Hi')"">Click me for console</button>
+    <button onclick="alert('Hi');console.log('Hi')">Click me for both</button>
+
+    <button onclick="fun()">Click me for function call</button>
+
+    <button onclick="console.log(event)">Click me for event object</button>
+
+    <button onclick="fun1(event)">0 times clicked</button>
+    
+    <button oncontextmenu="console.log('clicked')">onContextMenu</button> 
+    <button oncontextmenu="return false">onContextMenu disabling right click</button> 
+
+    <input type="text" onkeyup="upFun(event)"/>
+
+    <div onclick="alert('main Div')" id="mainDiv" style="width: 600px; height: 500px; background-color: rgb(168, 166, 37);">
+        <div onclick="alert('parent Div')" id="parentDiv" style="width: 400px; height: 300px; background-color: rgb(85, 134, 177);">
+            <div onclick="alert('child Div'); event.stopPropagation()" id="childDiv" style="width: 200px; height: 200px; background-color: rgb(25, 175, 38);">
+                    
+            </div>
+        </div>
+    </div>
+
+</body>
+<script>
+    function fun(){
+        alert('Hi')
+        console.log('Hi')
+    }
+
+    var val = 1
+    function fun1(event){
+        event.target.innerHTML = `${val} times clicked`
+        val ++
+    }
+
+    function upFun(ev){
+        console.log(ev.key)
+        console.log(ev.target.value)
+    }
+
+
+
+</script>
+
+<!--
+    <button onclick="alert('Hi')">Click me</button>
+        for getting out put in alert
+    <button onclick="console.log('Hi')"">Click me</button>
+        for getting out put in console
+    <button onclick="alert('Hi');console.log('Hi')"">Click me</button>
+        getting out put in the alert and console executing line by line execution
+
+EVENT HANDLING:
+    event: -click event
+    event listener: -onclick
+    event handler: -fun()  function call is handler
+    event binding: - asinging a event to button onclick="fun()"
+
+event object:
+    event object creates only when we are click on the button
+
+type of events
+    mouse  / pointer events
+        click
+        double click
+        mouse up / mouse down
+        mouse hover / mouse hover out
+        contextMenu
+            we can perform an event by clicking mouse right buttons
+    drag & drop events
+    keyboard events
+        key down
+        key up
+        key press
+        we can get the clickable button name in the event object
+    focus
+        highlighting the text box liik focus on that element
+    blur
+        loosing the focus coming out from the element focus
+event bubbling
+    when propogation is happening from child parent called event bubbling
+    when we have performed some event in the child the parent also reacted 
+    we can stop this using event.stopPropogation()
+event capturing
+    from parent to child
+    
+-->

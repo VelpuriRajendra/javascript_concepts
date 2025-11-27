@@ -1,0 +1,54 @@
+<html>
+    <head>
+        <script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
+        <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+
+        <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    </head>
+    <body>
+        <div id="root"></div>
+    </body>
+    <script type="text/babel">
+
+        function TodoItem(props){
+            console.log(props)
+            return <li>{props.item}&nbsp;<button onClick = {()=>props.del(props.ind)}>Delete</button></li> 
+        }
+
+
+       function Todolist(){
+        var [dreams, setDreams] = React.useState(["car", "bike", "building"])
+        function addTodo(){
+            var val = document.getElementById("text").value
+            setDreams([...dreams, val])
+            document.getElementById("text").value = ""
+        }
+        function deleteTodo(index){
+            var it = [...dreams]
+            it.splice(index, 1)
+            setDreams([...it])
+        }
+        return(
+            <div>
+                <input type="text" id="text"/>
+                <button onClick = {()=>addTodo()}>Add Todo</button>
+                <ul>{
+                    dreams.map((dream, index)=>{
+                        return <TodoItem item={dream} ind = {index} del = {deleteTodo}/>
+                    })
+                }</ul>
+            </div>
+        )
+       }
+       ReactDOM.render(<Todolist/>, document.getElementById("root"))
+
+    </script>
+</html>
+<!--
+outer function values will bind to the inner function under the clouser scope
+we are rendering every list item as a component and for every list item item comes from child component 
+we are passing a function reference from parent to child
+data maintaing in the parent so we should manipulate the from parent only
+when parent comp rendering the child components re-render for evry parent change
+
+-->

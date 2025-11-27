@@ -1,0 +1,41 @@
+<body>
+
+    <button onclick="fun()">inline Binding</button>
+
+    <button id="id1">elementById Binding</button>
+
+    <button id="id2">addEventListener Binding</button>
+
+</body>
+
+<script>
+
+    function fun(){
+        alert("Iam binding")
+    }
+
+    var v = document.getElementById("id1")
+    // console.dir(v)   to chech the proporties of a button
+    v.onclick = fun
+
+    var vv = document.getElementById("id2")
+    vv.addEventListener("click", fun)
+
+    var ar = ["Raj", "Rajendra", "Sai", "Amruth"]
+    ar.forEach((name)=>{
+        var el = document.createElement("li")
+        el.innerHTML = name
+        el.onclick = function(){alert(name)}
+        document.body.appendChild(el)
+
+    })
+
+</script>
+
+<!--
+event binding using 
+    inline event binding
+    getElementById.onclick
+    addEventListene
+dynamic event binding
+-->

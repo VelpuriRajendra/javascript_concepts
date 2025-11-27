@@ -1,0 +1,66 @@
+<html>
+    <head>
+        <script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
+        <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+
+        <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    </head>
+    <body>
+        <div id="root"></div>
+        <div id="root1"></div>
+    </body>
+    <script type="text/babel">
+       var jsx = <h1>Hello iam jsx element tried reuing</h1>
+    //    var wpage = <div>
+    //                 <h1>iam the normal jsx eleme</h1>
+    //                 <jsx></jsx>  
+    //                 </div>
+    //     ReactDOM.render(wpage, document.getElementById("root"))
+
+        var Comp = function(){return <h1>iam react component element reused</h1>}
+        function SecondComp(props){
+            console.log(props)
+            return (
+                <div>
+                <h1>iam react second component element reused</h1>
+                <h1>received as a children:{props.children}</h1>
+                <h1>received as a prop:{props.data}</h1>
+                </div>
+            )
+        }
+        var comp = <div>
+                    <h1>iam the normal jsx eleme</h1>
+                    <Comp></Comp>  
+                    <Comp></Comp>  
+                    <SecondComp data="passing data as a prop">passing custom content</SecondComp>
+                    <SecondComp></SecondComp>
+                    </div>
+        ReactDOM.render(comp, document.getElementById("root1"))
+
+    </script>
+</html>
+<!--
+jsx does not have the feature reusibility
+what is reusibility? 
+     if we write a code we can able to use multiple times and places called reusibility
+react js devides the content as components as small as possible
+components are reusibile javascript code
+components are the functions with returning jsx elements to meant for reusibility
+
+react library helps to create the react elements
+react dom library helps to assign the react elements to browser body
+
+babel helps to converts the jsx elements to react elements.
+react dom library helps to assign the react elements to browser body
+
+styles can be reused with class name
+
+jsx elements are not reused, if you want try create a component and reuse
+Comp & SecondComp is the componnet which return jsx elements and should start with Captial letter
+the component we are using as a element (custom element) in anethor componnet
+one function can return only one thing
+
+if we pass the between the custom elelemt it would be received as a children object in the function parameter brackets
+if we pass the data as in the open tag it would be received as a prop object in the function parameter brackets
+we can pass array, objects, function in the expression to the function as a props
+-->

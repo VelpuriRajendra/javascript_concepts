@@ -1,0 +1,47 @@
+<script>
+    var name = "Rajendra"  
+    console.log(name.split("").reverse().join("")) 
+    console.log(name)
+
+    var name = "Iam Rajendra"
+    console.log(name.split("").reverse().join(""))
+    console.log(name.split(" ").reverse().join(" "))
+    console.log(name.split(" ").map((word)=>{ return word.split("").reverse().join("")}).join(" "))
+
+    var name = "Iam Rajendra"
+    var ar = name.split(" ") 
+    var smallWord = ar[0]
+    console.log(ar)
+    for(i = 0; i < ar.length; i++){
+        if(smallWord.length > ar[i].length){
+            smallWord = arr[i]
+        }
+    }
+    console.log(smallWord)  //Iam
+
+</script>
+
+<!-- 
+word lever reverse and charecter level reverese
+split return the array with the string element by , seperated 
+    var name = "Rajendra"  
+    console.log(name.split(""))  //['R', 'a', 'j', 'e', 'n', 'd', 'r', 'a']
+    console.log(name.split("").reverse().join(""))  //ardnejaR
+
+    var name = "Iam Rajendra"
+    console.log(name.split("").reverse().join(""))  //ardnejaR maI
+    console.log(name.split(" ").reverse().join(" ")) //Rajendra Iam
+    console.log(name.split(" ").map((word)=>{ return word.split("").reverse().join("")}).join(" "))
+                //maI ardnejaR
+
+    var name = "Iam Rajendra"
+    var ar = name.split(" ")
+    var smallWord = ar[0]
+    console.log(ar)
+    for(i = 0; i < ar.length; i++){
+        if(smallWord.length > ar[i].length){
+            smallWord = arr[i]
+        }
+    }
+    console.log(smallWord)  //Iam
+-->

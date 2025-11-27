@@ -1,0 +1,95 @@
+<script>
+    // while(10 > 5)
+    //     console.log("executes untill the condition true")
+
+    var i = 5
+    while(i < 8)
+    {
+        console.log("hellow")  //2 times hellow print
+        i = i + 2
+    }
+
+
+    //printing 1 to 10
+    var i = 1             //initialzation
+    while(i <= 10)        //condition
+    {
+        console.log(i)
+        i = i + 1         //increment
+    }
+
+
+    //printing even numbers be 1 to 10
+    var i = 1             //initialzation
+    while(i <= 10)        //condition
+    {
+        if(i % 2 == 0)
+        {
+             console.log(i)   
+        }
+        i = i + 1
+    }
+
+
+
+
+    // var i = 1             //initialzation
+    // while(i <= 10)        //condition
+    // {
+    //     if(i % 2 == 0)   //condition fails
+    //     {
+    //          console.log(i)  
+    //          i = i + 1      //increment will never happend and go to infinite loop
+    //     }
+    // }
+
+
+
+    //for loop
+    for(i = 1; i <= 10; i = i+4)
+    {
+        console.log(i)  //1 5 9
+    }
+
+    
+
+    //nested for loop
+    
+
+
+</script>
+
+<!--
+    looping / iteration is nothing but to execute the following statement for multiple times
+    while(10 > 5)
+        console.log("executes untill the condition true") 
+        the while condition is not changing so condition is always true so happened infinite execution
+
+    var i = 5
+    while(i < 8)
+    {
+        console.log("hellow")
+        i = i + 2
+    }
+
+    the above statemenet executes for 2 times
+    initially i value is 5 condition is true execute the console and increment the i value
+    again it will check the condition and is true again console and increment the i value
+    this time again checks the cindition and it fails so stoped the iteration
+
+    for loop
+    for loop can help us to write the conditions at one place
+        initilazation, condition, modification
+
+
+    for(i = 1; i <= 10; i = i+4)
+    {
+        console.log(i)  //1 5 9
+    }
+    i = 1 then condition check then immidiatly execute the block and next modificate the value
+    then execute the block and modificate the value
+
+    initialization will execute only one time then condition check
+    modification will execute after the block execution
+    after the modification the condition check will execute
+-->

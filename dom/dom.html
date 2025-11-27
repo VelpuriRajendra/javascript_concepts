@@ -1,0 +1,122 @@
+<body>
+    <style>
+        .xyz{
+            color: red
+        }
+    </style>
+
+    <h1>Hello</h1>
+    <h3 id="id1">iam h3</h3>
+
+    <h1 id="name"><i>name is </i>Rajendra</h1>
+    <h1 id="name1"><i>name is </i>Chary</h1>
+
+    <h2 class="class1">Iam H2</h2>
+    <h2>Iam anethor H2 element</h2>
+
+
+    <input type="radio" name="gender" value="male">: Male
+    <input type="radio" name="gender" value="female">: Female
+    <input type="radio" name="gender" value="other">: Gender
+
+    <ul id="ul">
+
+    </ul>
+
+</body>
+
+<script>
+
+    var a = document.getElementsByTagName("h1")
+    console.log(a)
+    a[0].style.color = "red"
+
+    var b = document.getElementById("id1")
+    console.log(b)
+    b.style.color = "blue"
+    b.style.backgroundColor = "pink"
+
+    var c = document.getElementsByClassName("class1")
+    console.log(c)
+    c[0].style.color = "green"
+
+    var d = document.querySelectorAll("h2")
+    console.log(d)
+    d.forEach(function(ele){
+        ele.style.color = "green"
+    })
+
+    var e = document.querySelector("h1")
+    console.log(e)
+
+    var f = document.getElementsByName("gender")
+    console.log(f)
+
+    var nm = document.getElementById("name")
+    var nmm = nm.innerHTML
+    console.log(nmm)  //<i>name is </i>Rajendra
+    nm.classList.add("xyz")
+    nm.classList.remove("xyz")
+
+    var nm1 = document.getElementById("name1")
+    var nmm1 = nm1.innerText
+    console.log(nmm1)   //name is Chary
+
+    var ne = document.createElement("h1")
+    ne.innerHTML = "dynamic element"
+    document.body.appendChild(ne)
+    console.log(ne)
+
+    var names = ["Rajendra", "Sai", "Bunny", "Arvind"]
+    names.forEach(function(name){
+        var lit = document.createElement("li")
+        lit.innerHTML = name
+        document.getElementById("ul").appendChild(lit)
+    })
+     
+
+</script>
+
+<!--
+why javascript?
+    it is a functional programming language
+    it will use to create the logical and functional operations on web pages
+    it will use to create the web pages
+    to process the arryas & objects by using javascript 
+    we can write functional programs and async functions programs
+    we can control the html and css using javascript usind dom
+    javascript has default object call document object
+    javascript can create elements by dynamiclly
+
+document
+    we can select the elements by using document object 
+    getElementsByTagName
+        var a = document.getElementsByTagName("h1") it will search all the element
+        give it in the array HTML collection
+    getElementById
+        selects only sepicific element with id name
+    getElementsByClassName
+        it will give you the same class elements in the array
+        even one element also given in the array HTML collection
+    querySelectorAll
+        it will give you all the elements by tagname 
+        and give you in the array as nodelist
+    querySelector
+        it will give you the first matched element
+    getElementsByName
+        will give you the array as nodelist 
+        mostly used for inputs
+    
+nodelist & HTMLcollection
+    nodelist has methods to perform
+    htmlcollections does not has methods
+
+innerHTML & innerText
+     both are  used to select the element
+     but when you able to see the content you notice the diffs
+     html gives  you with inner elements
+     text does not give inner elements
+    
+
+when we use . operator better use camelCase
+-->

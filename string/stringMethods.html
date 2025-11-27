@@ -1,0 +1,83 @@
+<script>
+
+    var nm = "Rajendra"
+    console.log(nm) 
+    console.dir(nm)
+
+    var n = new String("Rajendra")
+    console.dir(n)
+
+    //at() & charAt()
+
+    console.log(n.charAt(2))  //j
+    console.log(n.at(2))    //j
+
+    console.log(n.charAt(-2))  //
+    console.log(n.at(-2))    //r
+
+    console.log(n.charAt(200))  //
+    console.log(n.at(200))    //undefined
+
+    //charCodeAt()
+
+    var n = new String("Rajendra")
+    console.log(n.charCodeAt(1))  //97
+
+    //endsWith()
+
+    var n = new String("Rajendra")
+    console.log(n.endsWith("ra")) //true
+
+    //replace()
+
+    var n = "Rajendra"
+    var rp = n.replace("a", "b")
+    console.log(n)   //Rajendra
+    console.log(rp)  //Rbjendra
+
+     //replaceAll()
+
+    var n = "Rajendra"
+    var rp = n.replaceAll("a", "b")
+    console.log(n)   //Rajendra
+    console.log(rp)  //Rbjendrb
+
+
+
+
+</script>
+
+<!--
+when we create a string literal the methods are not visible in the console
+but when we create using string object method methods will be visible
+
+string literal is simple to create 
+using object we can create string also but ee can use methods to create a string
+
+diff bw ar & charAt
+    at() will accept the -index
+    charAt() will not accepr the -index
+
+    when your trying to access the not existed index value at give you undefined
+    when your trying to access the not existed index value at give you nothing
+
+    charCodeAt()
+        will give you the ASCII code for the mathed index value
+
+    endsWith()
+    will return the boolean value if condition is matched
+
+    replace()
+        will replace the matched charecter with given charecter in the string
+        but not modified the originall string
+        return a new modifified string
+
+    replaceAll()
+        will replace all the matched charecters with given charecter
+        return new modified string
+        not modified original array
+
+
+reference error comes when tour accessing the undeclared variables
+
+-->

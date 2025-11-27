@@ -1,0 +1,44 @@
+<script>
+    var a = true
+    var b = false
+    c = a && b
+    console.log(c)  //false
+
+    var aa = true
+    var bb = 100
+    var cc;
+    cc = aa && bb
+    console.log(cc) //100
+
+     var aaa = false
+    var bbb = 100
+    var ccc;
+    ccc = aaa && bbb  //  condition fials at aaa so i treturns the aaa value
+    console.log(cc) //false  
+
+    var n1 = null
+    var n2 = 100
+    var n3
+    n3 = n1 && n2  //condition fails at n1 so it returns the n1 value
+    console.log(n3) //null
+
+    console.log(0 && true && false)   //0
+    console.log("rajendra" && false)  //false
+
+
+</script>
+
+<!---
+logical operators &&, ||, !
+    && both the LHS & RHS should be true
+    || only one should be true
+    ! not oposite to value
+
+    cosnole.log( true && false) value is false
+        so when && operand use the entire values should check it will breakes at false
+        true is okay so it will check next value false so breake there and return the current value
+
+    short circuit evaluation
+    true && 22 && false && 100 this expression will execute one by one so this is called SCE
+
+-->

@@ -1,0 +1,87 @@
+<html>
+    <head>
+        <script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
+        <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+
+        <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
+    </head>
+    <body>
+        <div id="root"></div>
+    </body>
+    <script type="text/babel">
+
+        var TodoItem = React.memo(function(props){
+            console.log(props)
+            return <div className = "m-2 p-2 border border-5 border-success">
+                    <li>{props.item}&nbsp;<button onClick = {()=>props.del(props.ind)}>Delete</button></li>
+                </div> 
+        })
+
+       function Todolist(){
+        var ar = React.useMemo(function(){
+            return [10, 20]
+        }, [])
+        var [dreams, setDreams] = React.useState(["car", "bike", "building"])
+        function addTodo(){
+            var val = document.getElementById("text").value
+            setDreams([...dreams, val])
+            document.getElementById("text").value = ""
+        }
+        var deleteTodo = React.useCallback(function(index){
+            console.log(index)
+            var it = [...dreams]
+            it.splice(index, 1)
+            setDreams([...it])
+        }, [])
+        return(
+            <div className="m-2 p-2 border border-5 border-danger">
+                <input type="text" id="text"/>
+                <button onClick = {()=>addTodo()}>Add Todo</button>
+                <ul>{
+                    dreams.map((dream, index)=>{
+                        return <TodoItem item={dream} ind = {index} del = {deleteTodo} ar = {ar}/>
+                    })
+                }</ul>
+            </div>
+        )
+       }
+       ReactDOM.render(<Todolist/>, document.getElementById("root"))
+
+    </script>
+</html>
+<!--
+when we are trying to add new todo item the total list items re-rendered from child
+when we are deleting list item all the child comp re-rendered
+performance hook
+    react.memo is the method and higher order component
+    we can write the child comp in the HOC to stop the re-render
+    when we are applying the React.memo it will checks the props equality of a component
+    if props are equal it will not re-render if both are not same it will re-render the component
+
+    no 2 functions are not same once function call over function will erase from the call stack
+    again it will creates with new reference or new memory location 
+
+    no two functions are not same even the functions are same values
+
+    when we are passing a function to child comp react.memo checks the props equality 
+    so previous and current functions are not same even the function defination is same 
+
+    when parent component rendering the functions inside the component will generates with the new reference
+    so previous and current functions are not having the same reference so react.memo considered as props are changed
+
+    useCallback hook helps to the function to keep the old reference
+    we can pass our function into the useCallback hook
+
+    we can use useCallback to functions to maintian old reference
+
+    we can use useMemo for array and object to keep the old reference 
+    we can return the data from the useMemo hook
+
+console.log(ab === bc)  //true
+    checking the referencial equality of ab and bc
+
+no 2 array, objects, function are not same even the values are same
+-->

@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <ul id="names"> 
+        <li>Raju</li>
+        <li>Rajendra</li>
+        <li>charys</li>
+    </ul>
+    <div id="Divnames">
+        <h1>Pooja</h1>
+        <h1>Hegde</h1>
+        <h1>Kajal</h1>
+    </div>
+
+    <div id="parent">
+        <div id="child">
+            <button id="btn">Click Me...</button>
+        </div>
+    </div>
+    <script>
+        var nm = document.getElementById("names")
+        nm.addEventListener("click", (event)=>{
+            // console.log("Helloossss", event)
+            if(event.target.tagName === "LI"){
+                alert(event.target.innerHTML)
+            }
+        })
+
+        var nem = document.getElementById("Divnames")
+        nem.addEventListener("click", (event)=>{
+            // console.log("Helloossss", event)
+            if(event.target.tagName === "H1"){
+                alert(event.target.innerHTML)
+            }
+        })
+
+        var p = document.getElementById("parent")
+        p.addEventListener("click", (event)=>{
+           alert("Iam Parent")
+        })
+        var c = document.getElementById("child")
+        c.addEventListener("click", (event)=>{
+            alert("Iam Child")
+        })
+        var b = document.getElementById("btn")
+        b.addEventListener("click", (event)=>{
+           alert("Iam Button")
+           event.stopPropagation()
+        })
+
+    </script>
+</body>
+</html>
+
+<!-- the event delegation is we can bind the event to the parent and handled the child elements dynamically -->
+
+<!-- event bubbling is we can bind an event to the child element and that event bind to the parent so when we perform on child the parent 
+also react to that event 
+if we stop the event bubbling using stopPropagation() method -->

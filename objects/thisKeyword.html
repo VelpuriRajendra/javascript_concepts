@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+   <script>
+    var ammount = 100
+    function funCall(a, b){
+        console.log("ammount", ammount)
+        console.log("this.ammount", this.ammount)
+        console.log("window.ammount", window.ammount)
+        console.log(a)
+        console.log(b)
+        return 222
+    }
+    funCall(123,321)   
+
+    var obj = {
+        ammount: 1000
+    }
+
+    funCall.call(obj, 11, 12)
+
+    funCall.apply(obj, [111, 222])
+
+
+    var vvv = funCall.bind(obj, 999, 999)
+    vvv()
+    console.log(vvv())
+
+    console.log(window)
+
+
+   </script>
+</body>
+</html>
+
+<!-- 
+this keyword represent the current object value in the javascript by default its pointing to the window object
+call,apply and bind methods are used to manipulate the this keyword
+basically this keyword represents the global declarations we can manipulate that this keyword using the above methods 
+call,apply and bind is used to executes a function call or a simple function call
+and we can manipulate the ths keyword using the above methods
+
+call()
+bsically this.ammount pointing to the 100 but we are changing the ammount value to obj so we can pass the objct what we want to point
+we can pass in the call method
+we can pass arguments by kama seperated
+
+apply()
+we can pass the arguments as an array format
+
+bind()
+bind also same like call but the diff is the bind return the same function form that returned fun we can call the function
+-->

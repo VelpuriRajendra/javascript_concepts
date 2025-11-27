@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- <script>
+        function fun(nm, ag){
+            this.name = nm,
+            this.age = ag
+        }
+        fun.prototype.surname = "Velpuri"
+
+        console.dir(fun)
+
+        const obj = {
+
+        }
+
+        console.dir(obj)
+
+        const obj1 = new fun("Rajendra", "28")
+        const obj2 = new fun("Chary", "26")
+
+        console.dir(obj1)
+        console.dir(obj2)
+        console.dir(obj1.surname)
+        console.dir(obj2.surname)
+
+        fun.prototype.surname = "Charys"
+
+        console.dir(obj1.surname)
+        console.dir(obj2.surname)
+
+        obj1.__proto__.surname = "Hellooo"
+
+        console.dir(obj1.surname)
+        console.dir(obj2.surname)
+  
+    </script> -->
+    <script>
+        var p = new Promise((res, rej)=>{
+            console.log("one")
+            console.log("two")
+            res(2)   
+        })
+        p.then((rrr)=>console.log(rrr)) 
+    </script>
+</body>
+</html>
+
+<!-- 
+Prototypal Inheritance is a fundamental feature in JavaScript that allows objects to inherit properties and methods from other objects.
+
+javascript is not a object oriented programing language
+its a functional promaging language follwes the object based process
+but it try to use the object inheritence, object oriented methods.
+
+when we create a function by default the proporty called prototype created and its empty or null
+when we create an object under the prototype __proto__ proporty exist by default
+
+what ever the functions or proporties we create under the prototype of a function will be shared all the objects 
+instance of a construction function
+when we need a static content we can simply maintian in the prototype of a constructur function it will accessable in all instances
+in the objects it will be in the prototype
+
+we can update or modify the prototype it will update all the instances
+we can update or modify the surname through the object if we change in one instanc it will reflect all the instance objects
+
+-->

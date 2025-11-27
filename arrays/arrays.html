@@ -1,0 +1,75 @@
+<script>
+
+    var ar = [10, 20, 30, 40]
+    console.log(ar)          //[10, 20, 30, 40]
+    console.log(ar[2])    //30
+    console.log(ar.length)  //4
+
+    var ar = [10, 20, 30, 40]
+    for(i = 0; i < ar.length; i ++){
+        console.log(i)               // 0 1 2 3 
+    }
+
+
+
+    var ar = [10, 20, 30, 40]
+    for(i = ar.length - 1; i >= 0; i --){
+        console.log(i)                //3 2 1 0
+        console.log(ar[i])            //40 30 20 10    
+    }
+
+
+    
+    //printing the even numbrs from given array
+    var ar = [12, 44, 321, 45, 6, 7, 54]
+    for(i = 0; i <= ar.length - 1; i ++){
+        if(ar[i] % 2 == 0){
+            console.log(ar[i])      //12 44 6 54
+        }
+    }
+
+
+    var ar = [1, 2, 3, 4, 5, 6]
+    for(var val of ar){
+        console.log(val)
+        console.log(ar)
+    }
+
+    var arr = [1, [2, [3, [4]]]]
+    console.log(arr.flat(Infinity).reduce((a, b)=> {return a+b}))   //6
+
+    function singleArray(arr){
+        var emAr = []
+        for(i = 0; i < arr.length; i++){
+            if(Array.isArray(arr[i])){
+                emAr = emAr.concat(singleArray(arr[i]))
+            }
+            else{
+                emAr.push(arr[i])
+            }
+        }
+        return emAr
+    }
+    console.log(singleArray(arr))
+
+
+
+</script>
+
+<!--
+arrays also called as arrays, collection, list, dictionary
+
+what is an array?
+    are used to grouping the multiple values using [] and assigned to a variable
+    are collection of elements stored in the []
+    array elements has invidual index positions we can access element by using index position
+    and index start with 0
+
+    when we are creating an array the lenght proporty atomatically comes with array
+    length start from 1
+
+arrays are iterators we can iterate using for of
+objects are not iterators but we can iterate the object by using for in
+strings are also iterators
+
+-->

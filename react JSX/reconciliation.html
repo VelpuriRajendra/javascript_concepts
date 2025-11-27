@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
+        <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+
+        <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    <title>Document</title>
+</head>
+<body>
+    <div id="realDom"></div>
+    <div id="virtualDom"></div>
+</body>
+<script type="">
+    var realDom = document.getElementById("realDom")
+    function DomRender(){
+        var h = document.createElement("h1")
+        h.innerHTML = "DOM Element"
+        var inp = document.createElement("input")
+        inp.placeholder = "DOM Element"
+        var btn = document.createElement("button")
+        btn.innerHTML = "Update Time"
+        btn.onclick= function(){DomRender()}
+
+        var par = document.createElement("p")
+        par.innerHTML = new Date().toString()
+
+        realDom.innerHTML = ""
+        realDom.append(h, inp, btn, par)
+    }
+    DomRender()
+
+    function VDom(){
+        var h = React.createElement("h1", null, "VDOM Element")
+        var inp = React.createElement("input",{placeholder: "VDOM Element"} )
+        var btn = React.createElement("button",{onClick: function(){VDom()}}, "update TIme" )
+        var p = React.createElement("p",null, new Date().toString() )
+        ReactDOM.render([h, inp, btn, p], document.getElementById("virtualDom"))
+    }
+    VDom()
+
+</script>
+</html>
+
+<!--
+realDOm is document object model
+when html code loading into browser DOM changes the each and evry html element into the different object  
+it will create a structure like a tree/ hirarche is called DOM
+node is nothing but the element
+append is used for multiple element, appendChild is used for single element
+var root = document.getElementById("root")
+    function Render(){
+        var h = document.createElement("h1")
+        h.innerHTML = "DOM Element"
+        var inp = document.createElement("input")
+        inp.placeholder = "DOM Element"
+        var btn = document.createElement("button")
+        btn.innerHTML = "Update Time"
+        btn.onclick= function(){Render()}
+        
+        var par = document.createElement("p")
+        par.innerHTML = new Date().toString()
+
+        root.append(h, inp, btn, par)
+    }
+    Render()
+when we are bind the function to the button it will recreate and assign the elements to the bowser
+it will call the function and execute the function 
+insted of that we need to clear the existing elements and add the new elements
+ var root = document.getElementById("root")
+    function Render(){
+        var h = document.createElement("h1")
+        h.innerHTML = "DOM Element"
+        var inp = document.createElement("input")
+        inp.placeholder = "DOM Element"
+        var btn = document.createElement("button")
+        btn.innerHTML = "Update Time"
+        btn.onclick= function(){Render()}
+
+        var par = document.createElement("p")
+        par.innerHTML = new Date().toString()
+
+        root.innerHTML = ""
+        root.append(h, inp, btn, par)
+    }
+    Render()
+the above function also creating all the elements without any changes the same elements creating
+we only want to create the elements that used to be updated
+there is no issue in recreating the less elements problem comes when more elements
+mainly react is used to optimes the performance and rendering the real DOM it will execute the algorithem
+virtual DOM 
+function VDom(){
+        var h = React.createElement("h1", null, "VDOM Element")
+        var inp = React.createElement("input",{placeholder: "VDOM Element"} )
+        var btn = React.createElement("button",{onClick: function(){VDom()}}, "update TIme" )
+        var p = React.createElement("p",null, new Date().toString() )
+        ReactDOM.render([h, inp, btn, p], document.getElementById("virtualDom"))
+    }
+    VDom()
+the React elements will only update the state changing elements without mentioning anything
+the react is created the algorithem as Vdom if create the virtaulDOm and compare with realDOm 
+and it will only recreate the state change elements in to the realDOm insted of recreating all
+how the react will re-render only the updated elements?
+react internally using diiging and reconciliation algorithem
+when we are going to call render method react will the vDOMinternally
+what we are seeing the nodes in browser is the realDOm
+virtual DOM stored in the memory
+fragment is the empty tag wrapper it wrapps the element into it 
+react will compare the vdom2 with vdom1 and find the differences 
+and insted of effecting all the elements it will update only updated elements
+diffing algorithem or diffing process
+to find the diff between current and previous virtual dom
+reconciliation
+is the process to sync the differneces to the real dom 
+-->

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+        <script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+</head>
+<body>
+    <div id = "root"></div>
+    <div id = "root1 "></div>
+    <script type="text/babel">
+        // const jsx = <React.Fragment>
+        //                 <h1>THis the JSX h element</h1>
+        //                 <p>this is the JSX p element</p>
+        //             </React.Fragment>
+
+        // const jsx = <React.Fragment>
+        //                 <h1>THis the JSX h element</h1>
+        //                 <p>this is the JSX p element</p>
+        //             </React.Fragment>
+
+        // const jsx = <>
+        //                 <h1>THis the JSX h element</h1>
+        //                 <p>this is the JSX p element</p>
+        //             </>
+        // ReactDOM.render(jsx, document.getElementById("root"))
+
+        function Table(){
+            return(
+                <table>
+                    <tbody>
+                        <tr>
+                            <Columns />
+                        </tr>
+                    </tbody>
+                </table>
+            )
+        }
+
+        function Columns(){
+            return(
+                <React.Fragment>
+                    <td>Velpuri</td>    
+                    <td>Rajendra</td>    
+                </React.Fragment>
+            )
+        }
+        ReactDOM.render(<Table />, document.getElementById("root"))
+    </script>
+</body>
+</html>
+
+<!-- 
+fragment is the feature that make the elements as a group without adding extra node to the DOM
+jsx has to a parent element and all the elements wrap to that parent node
+we can write like <React.Fragment>, <>
+we can pass only the key attribute to the react fragments 
+we can not pass the key attribute to the empty tags
+-->

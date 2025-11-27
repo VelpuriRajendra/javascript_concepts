@@ -1,0 +1,143 @@
+<body>
+    <ul id="ul1"></ul>
+    <ul id="ul2"></ul>
+    <ul id="ul3"></ul>
+    <ul id="ul4"></ul>
+</body>
+<script>
+
+    var ar = ["Rajendra", "Chary", "Sai", "Amruth"]
+    ar.forEach(function(name, index){
+        var el = document.createElement("li")
+        el.innerHTML = name
+        el.onclick = function(){alert(name)}
+        document.getElementById("ul1").appendChild(el)
+    })
+
+    ar.forEach(function(name, index){
+        var el = document.createElement("li")
+        el.innerHTML = name
+        el.onclick = function(){alert(index)}
+        document.getElementById("ul2").appendChild(el)
+    })
+
+    for(var i = 0; i <= ar.length -1; i ++){
+        var el = document.createElement("li")
+        el.innerHTML = ar[i]
+        el.onclick = function(){alert(ar[i])}         //undefined  i value incremented as 4 ar[4] undefined because 4 index not exist
+        document.getElementById("ul3").appendChild(el)
+    }
+
+
+    for(var i = 0; i <= ar.length -1; i ++){
+        var el = document.createElement("li")
+        el.innerHTML = ar[i]
+        el.onclick = function(){alert(i)}         //4  i value incremented as 4 by the clicking time of element
+        document.getElementById("ul4").appendChild(el)
+    }
+    console.log(i)  //4
+
+
+    var ar = []
+    for(var i = 0; i <=3; i++){
+        ar.push(function(){console.log("Hi")})
+    }
+    console.log(ar)  //[ƒ, ƒ, ƒ, ƒ]
+    ar[0]() //Hi
+    ar[2]() //Hi
+
+
+    var ar = []
+    for(var i = 0; i <=3; i++){
+        ar.push(function(){console.log(i)})
+    }
+    console.log(ar)  //[ƒ, ƒ, ƒ, ƒ]
+    ar[0]() //4   after completing the loop i is 4 so loop breaked calling the function after the for loop
+    ar[2]() //4  by this calling time is 4
+
+
+
+    var aa = ["Raj", "Sai", "Rajendra", "Amruth"]
+    var bb = []
+    aa.forEach(function(name, index){
+        bb.push(function(){console.log(index)})
+    })
+    console.log(bb)//[ƒ, ƒ, ƒ, ƒ]
+    bb[1]()  // 1
+    bb[3]()  // 3
+    //console.log(index)  //reference error because once the completion of foreach the function will erased
+
+
+    var aa = ["Raj", "Sai", "Rajendra", "Amruth"]
+    var l = []
+    for(let i = 0; i <= aa.length -1; i ++){
+        l.push(function(){console.log(i)})
+    }
+    console.log(l)
+    l[1]()
+    l[3]()
+    console.log(i)  //4
+
+</script>
+<!--
+scope binding
+
+for(var i = 0; i <= ar.length -1; i ++){
+        var el = document.createElement("li")
+        el.innerHTML = ar[i]
+        el.onclick = function(){alert(i)}     
+        document.getElementById("ul3").appendChild(el)
+    }
+i is globally declared and incremented by evrtytime and when the breaking stage of loop i value is 4
+after the completion of loop i is 4 so when iam trying to get the index of elements it will give you 4
+i is a global variable so iam access the variable after completing the for loop
+function(){alert(i)} also  bind as same not 0, 1, 2, 3
+so when iam clicking on the element that time i value is 4 so thas why we get 4
+
+
+ar.forEach(function(name, index){
+        var el = document.createElement("li")
+        el.innerHTML = name
+        el.onclick = function(){alert(index)}
+        document.getElementById("ul2").appendChild(el)
+    })
+here also we are trying access the index after the loop only but i value binded to the element under the clouser scope
+function(){alert(index)} bind to the variable as same but the i value assigned as 0, 1, 2, 3 under the clouser scope
+not like function(){alert(0, 1, 2, 3)
+when comes to foreach the 
+    outer function will bind the elements values to the inner function under the clouser scope
+because if we didnt bind the values we can not able to access but in for loop i value is global so we can access global value
+
+
+var aa = ["Raj", "Sai", "Rajendra", "Amruth"]
+    var bb = []
+    aa.forEach(function(name, index){
+        bb.push(function(){console.log(index)})
+    })
+    console.log(bb)//[ƒ, ƒ, ƒ, ƒ]
+    bb[1]()  // 1
+    bb[3]()  // 3
+because the pushing into the array as function(){console.log(index)}
+but the index also bind inthe closure scope
+outer function will bind the variable values to the inner function under the clouser scope
+console.log(index) after the foreach we can not able to access the inde because funtion got erased fro memory
+so index bind to the innner function under the clouser scope  
+
+
+ var aa = ["Raj", "Sai", "Rajendra", "Amruth"]
+    var l = []
+    for(let i = 0; i <= aa.length -1; i ++){
+        l.push(function(){console.log(i)})
+    }
+    console.log(l)
+    l[1]()
+    l[3]()
+    console.log(i)  //4
+if we use the let keyword let is the block scope element
+it will bing the scope in the block scope 
+
+
+for loop provide only one scope is global scope
+foreach provide 2 scopes 1 is clousers and 2 is global
+
+-->

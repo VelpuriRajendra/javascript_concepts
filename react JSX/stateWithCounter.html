@@ -1,0 +1,91 @@
+
+<html>
+    <head>
+        <script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
+        <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+
+        <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
+    </head>
+    <body>
+        <div id="root"></div>
+        <div id="root1"></div>
+    </body>
+    <script type="text/babel">
+       function Counter(){
+        var c = 0
+        function inc(){
+            c++
+            console.log(c)
+        }
+        function dec(){c--}
+        function rec(){c = 0}
+        return(
+            <div>
+                <h1>Count:{c}</h1>
+                <button onClick = {()=>dec()}>Decrement</button>
+                <button onClick = {()=>rec()}>Reset</button>
+                <button onClick = {()=>inc()}>Increment</button>
+            </div>
+        )
+       }
+       ReactDOM.render(<Counter />, document.getElementById("root"))
+
+
+       function Counter1(props){
+        var [count, setCount] = React.useState(props.value)
+        function inc1(){
+            setCount(count + props.inc)
+        }
+        function dec1(){setCount(count - props.inc)}
+        function rec1(){setCount(props.value)}
+        return(
+            <div>
+                <h1>Count:{count}</h1>
+                <button onClick = {()=>dec1()}>Decrement</button>
+                <button onClick = {()=>rec1()}>Reset</button>
+                <button onClick = {()=>inc1()}>Increment</button>
+            </div>
+        )
+       }
+
+       function Main(){
+        return(
+            <div>
+            <Counter1 value={10} inc={10}/>
+            <Counter1 value={50} inc={50} />
+            <Counter1 value={100} inc={100} />
+                </div>
+        )
+       }
+       ReactDOM.render(<Main />, document.getElementById("root1"))
+
+    </script>
+</html>
+<!--
+evry component has 3 fundamentals
+    state, actions, template
+
+action is the only way to change the state
+state is maintained in a variable
+
+when we are using a normal variable to maintain state 
+the state will update but the ui is not updates along with the state
+the change detection is not happening for normal variables
+the change detection is happening react with state variables
+once the state update the component should re-render with the updated state value to ui
+
+React.useState() - is the hook
+it will give you the state variable and a function (setter function) to update the state variable
+when we are updating the state variable what is the value we are passing in the setter function
+    that value will assigned to the state variable
+when you are updating the state variable using setter function 
+    the component should re-render except state variable
+
+even if we are using same component for multiple times
+    the state should be different for every component render
+
+-->

@@ -1,0 +1,87 @@
+<script>
+
+    function fun(){
+        var x = 100
+        x = x + 10
+        console.log(x) //110
+    }
+    fun() //once function call the result we get and the function will be removed from the stack
+    fun() //again function variables initialized and give the result
+            //when function calling the x will be initialzied multiple times freshlyy
+
+
+    // console.log("Line 1")
+    // setTimeout(function(){
+    //     console.log("set time out with 2000ms")
+    // }, 2000);
+    // console.log("Line 2")
+    //  setTimeout(function(){
+    //     console.log("set time out with 1s")
+    // }, 1000);
+    // console.log("Line 3") 
+        //executes line by line if it is asunc it will keep in the web api and execute after the sync execution
+        // line 1
+        // line 2
+        // line 3
+        // set time out with 1s
+        // set time out with 2000ms
+
+
+    // setInterval(() => {
+    //     console.log("Hi Rajendra")   //console the code for evry 2 sec
+    // }, 2000);
+
+
+    //printing the numbers using interval
+    var x = 1
+    var int = setInterval(() => {
+        console.log(x)   //1
+        x ++
+        console.log(x)   //2
+        clearInterval(int)  
+    }, 2000);
+    console.log(x) //1
+
+</script>
+
+<!--
+we can use some function using async and await
+    async and await
+some are default async functions we have
+    setTimeout
+        settime out takes 2 params 1 is function, 2 is time
+        it execute the code after the given time
+    setInterval
+        it will execute the code continuesly depends on our given time
+        to stop the interval we can assign a variable to interval golabbly 
+        and we can clear that using clearinterval()
+    setImmediate
+some are promised based functions
+    specially for API calls
+    fetch()
+    XMLHTTPRequest
+    axious
+
+javascript will execute the sync code line bt line
+it will execute async code after the execution complition of sunc
+
+    console.log("Line 1")
+    setTimeout(function(){
+        console.log("set time out with 2000ms")
+    }, 2000);
+    console.log("Line 2")
+     setTimeout(function(){
+        console.log("set time out with 1s")
+    }, 1000);
+    console.log("Line 3") 
+        //executes line by line if it is asunc it will keep in the web api and execute after the sync execution
+        // line 1
+        // line 2
+        // line 3
+        // set time out with 1s
+        // set time out with 2000ms
+
+untill calling the function it will not execute the code. 
+
+event loop
+-->

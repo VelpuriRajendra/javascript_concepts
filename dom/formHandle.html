@@ -1,0 +1,103 @@
+<body>
+
+    <!-- <form action="">
+        <input type="text" id="fn">
+        <input type="text" id="ln">
+        <button onclick="fun(event)">Show</button>    
+    </form> -->
+
+    <form onsubmit="fun(event)" name="form">
+        <input type="text" id="fn" name="fn">
+        <input type="text" id="ln" name="ln"> <br />
+
+        <label for="male">
+            <input type="radio" name="gender" id="male" value="male">: Male
+        </label>
+        <label for="female">
+            <input type="radio" name="gender" id="female" value="female">: Female
+        </label>
+        <label for="other">
+            <input type="radio" name="gender" id="other" value="other">: Other
+        </label> <br />
+
+        <label for="javascript">
+            <input type="checkbox" name="tech" id="javascript" value="javascript">: Javascript
+        </label>
+        <label for="reactjs">
+            <input type="checkbox" name="tech" id="reactjs" value="reactjs">: React js
+        </label>
+        <label for="angularjs">
+            <input type="checkbox" name="tech" id="angularjs" value="angularjs">: Angular js
+        </label>
+        
+        <button>Show</button>
+    </form>
+
+</body>
+<script>
+    function fun(ev){
+        ev.preventDefault()
+        // console.log(ev)
+        // console.log(document.getElementById("fn").value)
+        // console.log(document.getElementById("ln").value)
+        
+        // var x = document.getElementsByName("fn")
+        // var y = document.getElementsByName("ln")
+        // console.log(x[0].value)
+        // console.log(y[0].value)
+
+        //using form name
+        // var x = document.form.fn.value
+        // var y = document.form.ln.value
+        // console.log(x)
+        // console.log(y)
+
+        var details = new FormData(ev.target)
+        console.log(details)
+        var ob = {}
+        // var fn = details.get("fn")
+        // var ln = details.get("ln")
+        // var gen = details.get("gender")
+        // var tec = details.get("tech")
+        // console.log(fn, ln, gen, tec)
+        
+        var val = details.keys()
+        console.log(val)
+        for(var k of val){
+            console.log(k, details.getAll(k))
+            ob[k] = details.getAll(k)
+        }
+        console.log(ob)
+
+    }
+</script>
+<!--
+we can get the field values using
+    getElementById, getElenetsByName --nodelist, queryselectoAll, event object, form name, formData
+
+form when you submit the action the form automatically submit the data to server
+form has a default behavious to sumit the details to the server
+we want to stop the default behavior of a form using
+    event.preventDefault()
+
+when we use event object on button we get pointerEvent object 
+when we use event object on form we get form submitEvent object
+
+when we are using name attribute to the fields then only the values submit to the server 
+    without name it wont submit
+when we are using name attribute to the fields passing the values to server
+     in the url those are called query strings.
+
+if we deal with radio buttons we can group the elements by giving same to the buttons
+if we dont all the radio buttons should select
+
+to radio buttons lable for used to select the button click on the title too
+label for targeting to the id of selected element
+if we did not mention value to radio it will give you on to selected radio button
+
+get method will give you the single value
+getAll method will give you all the selected values in the array
+
+iterator we can iterate the iterators using for of
+
+-->

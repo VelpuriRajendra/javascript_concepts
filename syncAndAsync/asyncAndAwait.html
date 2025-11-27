@@ -1,0 +1,88 @@
+<script>
+async function fun(a, b) {
+    return a + b
+}
+console.log(fun(1, 3))  // retuns promise
+fun(1, 3).then((val)=>console.log(val))
+
+async function fun(){
+    fetch("https://fakestoreapi.com/products").
+    then((res)=>res.json()).
+    then((data)=>{console.log(data)})
+    return "Hello Rajendra"
+}
+fun().then((data)=>console.log(data))
+
+async function fun(){
+    var data
+    fetch("https://fakestoreapi.com/products").
+    then((res)=>res.json()).
+    then((dat)=>{data = dat})
+    console.log(data)       //undefined
+    return "Hello Rajendra"
+}
+fun().then((data)=>console.log(data)) 
+
+async function fun() {
+    var apiCall = await fetch("https://fakestoreapi.com/products")
+    var data = await apiCall.json()
+    console.log(data)  //data
+    return "Rajendra"
+}
+fun().then((data)=>console.log(data))  //Rajendra
+
+let asyncFun = async(a, b) => {
+    return a+b
+}
+asyncFun(1,1).then((data)=>console.log(data))
+
+</script>
+
+<!-- 
+just a async keyword before the function changes a normal function into async promise based function
+async could change the normal function to the async function
+await could change the execution of code line by line
+by default a promise based function is in pending state 
+once execution completed it will come to then block or catch block 
+whatever we return in the async function it will come to the then block
+
+async function fun(a, b) {
+    return a + b
+}
+console.log(fun(1, 3))  // retuns promise
+fun(1, 3).then((val)=>console.log(val))
+
+async function fun(){
+    fetch("https://fakestoreapi.com/products").
+    then((res)=>res.json()).
+    then((data)=>{console.log(data)})
+    return "Hello Rajendra"
+}
+fun().then((data)=>console.log(data))
+
+async function fun(){
+    var data
+    fetch("https://fakestoreapi.com/products").
+    then((res)=>res.json()).
+    then((dat)=>{data = dat})
+    console.log(data)       //undefined
+    return "Hello Rajendra"
+}
+fun().then((data)=>console.log(data)) 
+undefined because the sync code will execute first so before assiging the dat to data console will execute
+
+async function fun() {
+    var apiCall = await fetch("https://fakestoreapi.com/products")
+    var data = await apiCall.json()
+    console.log(data)  //data
+    return "Rajendra"
+}
+fun().then((data)=>console.log(data))  //Rajendra
+
+arrow function
+let asyncFun = async(a, b) => {
+    return a+b
+}
+asyncFun(1,1).then((data)=>console.log(data))
+
+-->

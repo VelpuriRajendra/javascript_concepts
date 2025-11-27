@@ -1,0 +1,54 @@
+<script>
+    var obj = {
+        firstname: "Rajendra",
+        lastname: "Chary",
+        age: 28
+    }
+    console.log(obj.firstname)
+    console.log(obj["lastname"])
+
+    var ag = "age"
+    console.log(obj.ag)  //undefined
+    console.log(obj[ag])  //28
+
+    console.log(obj["ag"])  //undeined  it will look for the ag key in the obj 
+
+    //looping an objects
+    var obj = {
+        firstname: "Rajendra",
+        lastname: "Chary",
+        age: 28
+    }
+    for(var val in obj){
+        console.log(val, obj[val])
+    }
+
+    // console.log({} == {})
+    // console.log({} === {})
+
+    Promise.resolve(5).then((val)=>console.log(val))
+
+
+</script>
+
+<!--
+object literals
+    objects the collections of property where propers combination keys and values
+    objects are collection of keys and values 
+    we can access the object proporties using .notation and []notation
+
+    when your assign a key to variable and try to access using .notation ie will give you undefined
+    because when your using .notation the key name expect with in the object
+    so we can access using the []notation
+
+    looping an object
+    for(var variable in objectName)
+    variable is give you the evry key in the object
+    we can access what ever we want to
+
+    in the javascript we are using object literals not original objects
+    objects comes form object oriented programing language
+    but javascript is the functional programing laguage
+    object is the instance of a class
+
+-->

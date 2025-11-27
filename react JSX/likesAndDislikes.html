@@ -1,0 +1,37 @@
+<html>
+    <head>
+        <script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
+        <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+
+        <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    </head>
+    <body>
+        <div id="root"></div>
+    </body>
+    <script type="text/babel">
+       function LikesCount(){
+        var [like, setLike] = React.useState(0)
+        var [disLike, setDislike] = React.useState(0)
+        function addLike(){
+            setLike(like + 1)
+        }
+        return(
+            <div>
+                <h1>Likes: {like}</h1>
+                <h1>DisLikes: {disLike}</h1>
+                <button onClick={addLike}>Add Like</button>
+                <button onClick={()=>setDislike(disLike + 1)}>Add DisLike</button>
+            </div>
+        )
+       }
+       ReactDOM.render(<LikesCount />, document.getElementById("root"))
+    </script>
+</html>
+<!--
+a application has 3 things
+    state, templates, actions
+when we are dealing with the state related work better to create state variables
+normal variables can increase but not re-renderd the ui once value get update
+state variables are helped us to re-render the ui evrytime state variables get update
+setter function will re-render the component state variable update through the setter function
+-->

@@ -1,0 +1,42 @@
+<script>
+
+var a = 10
+var b = a
+a = 20 
+console.log(a)   //20
+console.log(b)   //10
+
+var val = 100
+function fun(num){
+    num = num + 50
+    return num
+}
+console.log(val)   //100
+console.log(fun(val)) //150
+
+var obj = {name: "Raj"} 
+var ob = obj
+obj.name = "Rajendra"
+console.log(obj)      //Rajendra
+console.log(ob)      //Rajendra
+
+var ooo = {name: "Velp"}
+function obFun(obj){
+    obj.name = "Velpuri"
+    return obj
+}
+console.log(obFun(ooo))   //Velpuri
+console.log(ooo)          //Velpuri
+
+</script>
+
+<!-- 
+When primitive types (like number, string, boolean, null, undefined, symbol, and bigint) are passed to a function,
+they are passed by value. This means a copy of the variable is passed, and changes inside the function 
+do not affect the original value. 
+
+
+When non-primitive types (like objects, arrays, and functions) are passed, they are passed by reference. 
+This means the reference to the object is passed, so changes made inside the function affect the original object.
+
+-->

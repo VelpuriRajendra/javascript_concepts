@@ -1,0 +1,109 @@
+<html>
+    <head>
+        <script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
+        <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+
+        <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    </head>
+    <body>
+        <button onclick="alert('iam normal event')">Html button</button>
+        <div id="root1"></div>
+        <div id="root2"></div>
+        <div id="root3"></div>
+        <div id="root4"></div>
+    </body>
+    <script type="text/babel">
+       var btn = <button onClick = {function(){alert("iam jsx event")}}>jsx button</button>
+       ReactDOM.render(btn, document.getElementById("root1")) 
+
+       var btn = <button onClick = {fun}>binding fun def</button> //binding function defination
+       ReactDOM.render(btn, document.getElementById("root2")) 
+
+       var btn = <button onClick = {()=>{fun()}}>binding anonymous fun</button> //binding anonymous function
+       ReactDOM.render(btn, document.getElementById("root3")) 
+
+       var btn = <div onClick={(e)=>{console.log(e.target.innerText)}}>Printing div content in the console</div>
+       ReactDOM.render(btn, document.getElementById("root4")) 
+
+       function fun(){
+        alert("iam fun function")
+       }
+
+
+
+       function test(){
+        console.log("iam test function")
+       }
+       test()  //calling function
+       var x = test() //the test fun returned value assigned to x
+       console.log(x) //undefined
+
+
+
+       function test1(){
+        console.log("iam test function")
+        return 100
+       }
+       test()  //calling function
+       var x = test() //the test fun returned 100
+       console.log(x) //100
+
+
+       
+       function test2(){
+        console.log("iam test function")
+       }
+       var x = 100 //the test fun returned 100
+       x = test2()
+       console.log(x) //undefined
+
+
+
+       function test3(){
+        console.log("iam test function")
+       }
+       console.log(test3) //test3 is identifier which having the function defination consoled 
+       var x = test3  //asigning a function defination to x
+       x() // calling a function
+       console.log(test3()) //undefined
+
+
+       var rad = <div>
+                    <input type = "radio" name="state" value = "Ind" onChange = {(e)=>{cha(e)}}/>: Ind
+                    <input type = "radio" name="state" value = "Usa" onChange = {(e)=>{cha(e)}}/>: Usa
+                    <h1 id="h1"></h1>
+                </div>
+            ReactDOM.render(rad, document.getElementById("root4"))
+
+        function cha(ev){
+            document.getElementById("h1").innerHTML = ev.target.value
+        }
+
+    </script>
+</html>
+<!--
+var btn = <button onClick = {alert("iam jsx event")}>jsx button</button>
+when babel converts literal to object and in the expressin{} and evatuate and the function call automatically happend
+we can bind only function defination not function call
+
+diff bw normal html event binding and jsx event binding
+    in html we can write small letters in attribute / listener
+    we can bind handler in the string
+    
+    in jsx we can write attribute / listener in camel case
+    we can bind the handler in the expression as a function defination or function call in anonymous function
+
+what is diff bw event handling in html and react js?
+    in the html creates event object is dom event object (pointer event)
+    in html we can write small letters in attribute / listener
+    we can bind handler in the string
+
+    in the react creates the event object is synthetic object
+    in the react all the events are synthetic
+     in jsx we can write attribute / listener in camel case
+    we can bind the handler in the expression as a function defination or function call in anonymous function
+
+why jsx popular?
+    jsx helped us to conditional rendering and conditional styling
+
+-->

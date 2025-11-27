@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>DOM Counter: <span id="counter"></span></h1>
+    <button onclick="increment()">Increment</button>
+    <button onclick="decrement()">Decrement</button>
+
+    <h1>DOM Counter1: <span id="counter1"></span></h1>
+    <button onclick="increment1()">Increment</button>
+    <button onclick="decrement1()">Decrement</button>
+    <script>
+        var a = 0
+        var b = 0
+        document.getElementById("counter").innerHTML = a
+        document.getElementById("counter1").innerHTML = b
+        function increment(){
+            document.getElementById("counter").innerHTML = ++a
+        }
+        function decrement(){
+            a--
+            document.getElementById("counter").innerHTML = a
+        }
+
+         function increment1(){
+            document.getElementById("counter1").innerHTML = ++b
+        }
+        function decrement1(){
+            b--
+            document.getElementById("counter1").innerHTML = b
+        }
+
+
+        class Counter{
+            val = 0
+            h1 = null
+            constructor(){
+                this.h1 = document.createElement("h1")   
+                this.h1.innerHTML = "Counter:"+ this.val
+                document.body.appendChild(this.h1)
+
+                var ibtn = document.createElement("button")
+                ibtn.innerHTML = "Increment"
+                ibtn.onclick = this.inc
+                document.body.appendChild(ibtn)
+                
+                var dbtn = document.createElement("button")
+                dbtn.innerHTML = "Decrement"
+                document.body.appendChild(dbtn)
+            }
+            inc=()=>{
+                console.log(this)
+                this.val ++
+                this.h1.innerHTML = "Counter:"+ this.val
+            }
+            dec(){
+                this.val --
+            }
+        }
+        var c1 = new Counter()
+        console.log(c1)
+        var c2 = new Counter()
+        console.log(c1)
+        var c3 = new Counter()
+        console.log(c1)
+    </script>
+</body>
+</html>
+
+<!-- 
+oops - object oriented program/principles
+we can create an instances using calss when we use the same logic multiple times
+
+instansiation - we can create multiple counters using the calss by using new keyword
+state - it will maintain the individual states for evry instance
+action - the action is same for all the instance
+constructor is the method having in the class and for every instance the constructor function will call
+
+for a simple counter we can create a class with constructor and variable as store 
+write a logic for increment, decrement 
+in the constructor function we can create the ui elements
+we can access the functions and variables using this key word
+for evry instance constructor function could call 
+
+encapsulation is data binding to the application
+
+arrow functions will creates its own this
+
+class - class is the combination of proporties and methods
+object - it is a instance of a class
+        if we create a instance object the functions and proporties automatically binded to the instance object
+functions - when ever we create a function or method it will create its own this
+-->

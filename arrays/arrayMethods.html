@@ -1,0 +1,194 @@
+<script>
+    var ar = [10, 20, 12, 30, 49, 21, 43]
+    var br = [22, 33]
+    var cr = [35, 34]
+
+    console.log(ar)  //we can able to see the methods in the prototype
+
+    //at()
+
+    console.log(ar[1]) //20 it will give you the 1 index value
+    console.log(ar[-1]) //undefined
+
+    console.log(ar.at(1))  //20
+    console.log(ar.at(-1)) //43
+
+    //concat()
+
+    var d;
+    d = br.concat(ar, cr)
+    console.log(d)   // [22, 33, 10, 20, 12, 30, 49, 21, 43, 35, 34]
+
+    var br = [22, 33]
+    var cr = [35, 34]
+    console.log(br + cr)  //22,3335,34 
+    console.log(br.toString())  //22, 23
+    console.log(""+br)  //22, 23
+
+    //includes()
+
+    var ar = [10, 20, 12, 30, 49, 21, 43]
+    console.log(ar.includes(10))  //true
+    console.log(ar.includes(100)) //false
+
+    //indexOf()
+
+    var ar = [10, 20, 20, 12, 30, 49, 21, 43]
+    console.log(ar.indexOf(20))  //1
+    console.log(ar.indexOf(123))  //-1
+
+    //lastIndexOf()
+    
+    var ar = [10, 20, 20, 12, 30, 49, 20, 21, 43]
+    console.log(ar.lastIndexOf(20)) //6
+
+    //join()
+
+    var ar = [10, 20, 20, 12, 30, 49, 20, 21, 43]
+    console.log(ar.join())  //10,20,20,12,30,49,20,21,43
+    console.log(ar.join("@"))  //10@20@20@12@30@49@20@21@43
+    console.log(ar.join(""))   //102020123049202143
+
+    //pop()
+
+    var ar = [10, 20, 20, 12, 30, 49, 20, 21, 43]
+    var pr = ar.pop()
+    console.log(ar) //[10, 20, 20, 12, 30, 49, 20, 21]
+    console.log(pr) //43
+
+    //push()
+
+    var ar = [10, 20, 20, 12, 30, 49, 20, 21, 43]
+    var pr = ar.push(200, 123)
+    console.log(ar) //[10, 20, 20, 12, 30, 49, 20, 21, 43, 200, 123]
+    console.log(pr) //11
+
+    //shift()
+
+    var ar = [100, 20, 20, 12, 30]
+    var sr = ar.shift()
+    console.log(ar) //[20, 20, 12, 30]
+    console.log(sr) //100
+
+    //unshift()
+
+    var ar = [100, 20, 20, 12, 30]
+    var ur = ar.unshift(12, 13)
+    console.log(ar) // [12, 13, 100, 20, 20, 12, 30]
+    console.log(ur) //7
+
+    //splice()
+    
+    var ar = [100, 20, 20, 12, 30, 23, 54]
+    var sr = ar.splice(2, 3, 44, 55)       //index value, number of items deleted, inserted values
+    console.log(ar)   //[100, 20, 44, 55, 23, 54]
+    console.log(sr)   //[20, 12, 30]
+
+    var sr = ar.splice(2, 0, 44, 55)   
+    console.log(sr)  //[]
+
+    //reverse()
+
+    var ar = [100, 20, 20, 12, 30, 23, 54]
+    var r = ar.reverse()
+    console.log(ar)    //[54, 23, 30, 12, 20, 20, 100]
+    console.log(r)     //[54, 23, 30, 12, 20, 20, 100]
+
+    //toReversed()
+
+    var ar = [100, 20, 20, 12, 30, 23, 54]
+    var tr = ar.toReversed()
+    console.log(ar)    //[100, 20, 20, 12, 30, 23, 54]
+    console.log(tr)    //[54, 23, 30, 12, 20, 20, 100]
+
+    
+
+
+
+
+
+
+</script>
+
+<!--
+when we are creating an array some inbuild mehtods are comes with an array
+array methods:
+
+at()
+array.at() will give you the values in the index positions which you pick
+            it will give you from the negative index also
+            0, 1, 2,....> & <....-2, -1
+
+concat()
+d = br.concat(ar, cr)
+    we can concat the multiple arrays using concatination
+    when we are adding 2 arrays using + the array type cast to string 
+    and sting concatination is happening
+
+    var br = [22, 33]
+    var cr = [35, 34]
+    console.log(br + cr)  //22,3335,34 
+
+    array also will typecasted.
+    to number it will give you NaN
+    to string it will give you all the numbers as a string
+
+includes()
+includes return boolean value after cheking the give number exist or not in the array
+
+indexOf()
+    will give you the index number of the given number in the array
+    if given number is not exist it will return -1
+
+lastIndexOf()
+    if we have multiple smae numbres in the array it will give you the last index value
+
+join()
+    will give you the concatination of value by seperating by , default
+
+pop()
+    will remove the value from the last index by single
+    return the removed value
+    modified the original array
+
+push()
+    will push the values into the array form last index
+    return the updated array length
+    modified the original array
+
+what are the stack methods of array??
+    always insert the values from the last
+what are the q methods in array??
+    always insert the values from the begining
+
+shift()
+    will remove the value from the first index by single
+    return the removed value
+    modified the original array
+
+unshift()
+    will push the values into the array form first index
+    return the updated array length
+    modified the original 
+    
+splice()
+    splice(a, b, c)
+        a is index value of given array
+        b is the number of items should be deleted
+        c is values that insert after removing the values at the same index
+    will remove the values from specific index and insert also
+    will modify the original array
+    it will return the removed array
+    if you did not removed any values it will retutn empty array []
+
+reverse()
+    it will give you the reversed array 
+    modified the original array
+
+toReversed()
+    it will give you the reversed array
+    but it will not reversed original array
+    return new reversed array
+
+
+-->

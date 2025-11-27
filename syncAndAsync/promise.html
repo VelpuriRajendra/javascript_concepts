@@ -1,0 +1,144 @@
+<script>
+console.log("Line 1")                   //1
+setTimeout(() => {
+    console.log("Line 2")               //4
+}, 1000);
+function fun(){
+    sum = 0
+    for(var i = 0; i <= 900000; i++){
+        sum = sum + i
+    }
+    return Promise.resolve(sum)
+}
+fun().then((val)=>console.log(val))     //3
+console.log("Line 3")                   //2
+
+
+var pro = new Promise((resolve, reject)=>{
+    resolve("Rajendra")
+    reject("swapna")
+})
+pro.then((val)=>{console.log(val)}).catch((val)=>{console.log(val)})
+
+function fun(a, b){
+    return Promise.resolve(a+b)
+}
+fun(100, 200).then((sum)=>console.log(sum))   //300
+
+Promise.resolve("Hello").then((val)=>{console.log(val +" Rajendra")})  //Hello Rajendra
+
+function fun(){
+    var pro = new Promise((res, rej)=>{
+        sum = 0
+        for(i = 0; i <= 900000; i++){
+            sum = sum + i
+        }
+        res(sum)
+    })
+    return pro
+}
+fun().then((val)=>{console.log(val)})    //value 405000450000
+
+fetch("https://fakestoreapi.com/products").then((res)=>res.json()).then((data)=>console.log(data))
+
+function fun(){
+    var data;
+    fetch("https://fakestoreapi.com/products").
+    then((res)=>res.json()).
+    then((dat)=>data = dat)
+    console.log(data)        //undefined
+    setTimeout(() => {
+        console.log(data)   //data
+    }, 5000);
+}
+fun()
+
+function fun(){
+    var pro = new Promise((res, rej)=>{
+        fetch("https://fakestoreapi.com/products").
+        then((res)=>res.json()).
+        then((data)=>res(data))
+    })
+    return pro
+}
+fun().then((data)=>console.log(data))   //data
+</script>
+
+<!-- 
+promise is an object having resolve and reject method
+promises helps to change the normal function to promise based async function
+it converts the function to non-blocking function
+what you have return in the function it will comes to the then block
+    console.log("Line 1")                   //1
+    setTimeout(() => {
+        console.log("Line 2")               //4
+    }, 1000);
+    function fun(){
+        sum = 0
+        for(var i = 0; i <= 900000; i++){
+            sum = sum + i
+        }
+        return Promise.resolve(sum)
+    }
+    fun().then((val)=>console.log(val))     //3
+    console.log("Line 3")                   //2
+
+
+    var pro = new Promise((resolve, reject)=>{
+    resolve("Rajendra")
+    reject("swapna")
+    })
+    pro.then((val)=>{console.log(val)}).catch((val)=>{console.log(val)})
+
+
+    function fun(a, b){
+    return Promise.resolve(a+b)
+    }
+    fun(100, 200).then((sum)=>console.log(sum))   //300
+
+    Promise.resolve("Hello").then((val)=>{console.log(val +" Rajendra")})  //Hello Rajendra
+
+    function fun(){
+    var pro = new Promise((res, rej)=>{
+        sum = 0
+        for(i = 0; i <= 900000; i++){
+            sum = sum + i
+        }
+        res(sum)
+    })
+    return pro
+    }
+    fun().then((val)=>{console.log(val)})    //value 405000450000
+
+    fetch is the promise based in nature we can collect the data in the then block.
+    fetch("https://fakestoreapi.com/products").then((res)=>res.json()).then((data)=>console.log(data))
+
+    by default a promise state is pending
+
+
+    promise is executes the result once the code completed
+    where as a async function will execute the result based on the code
+    below the code
+    function fun(){
+    var data;
+    fetch("https://fakestoreapi.com/products").
+    then((res)=>res.json()).
+    then((dat)=>data = dat)
+    console.log(data)        //undefined
+    setTimeout(() => {
+        console.log(data)   //data
+    }, 5000);
+}
+fun()
+
+function fun(){
+    var pro = new Promise((res, rej)=>{
+        fetch("https://fakestoreapi.com/products").
+        then((res)=>res.json()).
+        then((data)=>res(data))
+    })
+    return pro
+}
+fun().then((data)=>console.log(data))   //data
+
+-->

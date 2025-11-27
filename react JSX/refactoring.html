@@ -1,0 +1,70 @@
+<html>
+    <head>
+        <script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
+        <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+
+        <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
+    </head>
+    <body>
+        <div id="root"></div>
+    </body>
+    <script type="text/babel">
+
+      function Child(props){
+        var [c1, setC1 ] = React.useState("Rajendra")
+        
+        return(
+            <div className="m-3 p-3 border border-4 border-sucess">
+                <h1>Child Component</h1>
+                <h1>value from parent comp: {props.val}</h1>
+                <button onClick = {props.fun}>child button to call parent function</button>
+                <button onClick = {()=>props.fun1(c1)}>child button to pass child value to parent</button>
+            </div>
+        )
+      }
+
+
+      function Parent(){
+        var [p1, setP1 ] = React.useState(1000)
+        var [cval, setCval ] = React.useState()
+        function palert(){
+            alert("iam parent function calling from child comp")
+        }
+        function forChildVal(cval){
+            setCval(cval)
+        }
+        return(
+            <div className="m-3 p-3 border border-2 border-danger">
+                <h1>Parent Component</h1>
+                <h1>Child Component value in the parent -{cval}</h1>
+                <Child val = {p1} fun = {palert} fun1 = {forChildVal}/>
+            </div>
+        )
+      }
+      ReactDOM.render(<Parent />, document.getElementById("root"))
+
+    </script>
+</html>
+<!--
+refactoring
+    refactoring is maintaing the code in seperate seperate components.
+    if we write in single component if issue happend entire component need to change
+    if we refactoring the components we can easily rectify the isse if possible we can replace the component 
+        it self
+    maintainibility is to modify, upgrade, customise the application.
+    portability is to carry the item seperatly and fixed at right place
+
+    parent component
+    child component
+    more than 2 child components are sibling components
+
+we can pass the data form parent to child as a props
+we can not use the parent properties in the child component directly without passing props
+we can pass the function reference to the child and we can call the function child 
+we can pass the child value to parent by using a callback function
+
+-->

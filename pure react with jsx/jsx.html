@@ -1,0 +1,96 @@
+<html>
+    <head>
+        <script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
+        <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+
+        <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    </head>
+    <body>
+        <h1 style="color: red;background-color: aliceblue;">Iam declarative element</h1>
+        <div id="js"></div>
+        <div id="root"></div>
+        <div id="root1"></div>
+        <h1>{10+10}</h1>
+        <div id="list"></div>
+    </body>
+    <script type="text/babel">
+        var dh = document.createElement("h1")
+        dh.style.color = "green"
+        dh.style.backgroundColor = "pink"
+        dh.innerHTML = "iam javascript dynamic generated element"
+        document.getElementById("js").appendChild(dh)
+
+        var re = React.createElement("h1", {style:{color: 'blue', backgroundColor: 'yellow'}}, "Iam react element") //reference error react not defined
+        ReactDOM.render(re, document.getElementById("root"))
+
+        var rh = <h1  style={{color: 'yellow', backgroundColor: 'red'}}>iam jsx element {10+10}</h1>
+        ReactDOM.render(rh, document.getElementById("root1"))
+
+
+        var a = 100  //number literal
+        var b = "Raj" //string literal
+        var c = [1, 2]  //array literal
+        var d = new Array(10, 20)   //array
+        var e = <h1>lsx element</h1>  //jsx literal
+        
+
+        //generating list items using jsx
+        var ar = ["Raj", "Chary", "Rajendra", "Sai"]
+        var list = <ul>
+                    {
+                        ar.map((name)=>{
+                            return <li>{name}</li>
+                        })
+                    }
+                    </ul>
+        ReactDOM.render(list, document.getElementById("list"))
+
+    </script>
+</html>
+<!--
+pure javascript element deneration
+    var dh = document.createElement("h1")
+    in javascript document can create the elements and append to the place where we want
+
+
+what is a react?
+    react is a javascript library to generate the UI
+browser does not have react library default
+we have to import cdn in our file
+1 is for react & 2 is react dom
+    react library can create react elements dynamically
+    ReactDOM library can render the react elements to the browser 
+
+
+jsx
+javascript xml 
+we can write html elements in the javascript directly assign to the variable
+browser does not have understand the jsx so,
+     babel helps to conver the jsx elements into react elements
+we have to tell the babel to where we can changing the jsx elements to react elements 
+    <script type="text/babel">
+
+    var c = [1, 2]  //array literal
+    we are creating as a literal javascript will store as a object
+    var d = new Array(10, 20)   //array
+    here we are creating as a object
+
+     var re = React.createElement("h1", {style:{color: 'blue', backgroundColor: 'yellow'}}, "Iam react element") //reference error react not defined
+    ReactDOM.render(re, document.getElementById("root"))
+
+    react will creating as a object javascript stored as a object
+
+    var rh = <h1  style={{color: 'yellow', backgroundColor: 'red'}}>iam jsx element</h1>
+    ReactDOM.render(rh, document.getElementById("root1"))
+
+    jsx will creating as h1 literal, babel helped to javascript to store as a object
+    babel converts h1 literal to object
+    h1 is jsx html element
+    in normal html we can write elements in capital letter it is not case sensitive
+    but in jsx if we write in capital letter jsx considered as a component
+
+    within the jsx element literals we can execute the expressions
+    within the jsx elements literals we can display the variables values
+
+
+-->

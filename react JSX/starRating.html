@@ -1,0 +1,53 @@
+<html>
+    <head>
+        <script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
+        <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+
+        <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
+    </head>
+    <body>
+        <div id="root"></div>
+        <div id="root1"></div>
+    </body>
+    <script type="text/babel">
+        function Rating(){
+            var [rate, setRate] = React.useState(null)
+            console.log(rate)
+            return(
+                <div className = "p-5 m-5">
+                    <i class={1<=rate ? "bi bi-star-fill" : "bi bi-star"} onClick={()=>setRate(1)}></i>
+                    <i class={2<=rate ? "bi bi-star-fill" : "bi bi-star"} onClick={()=>setRate(2)}></i>
+                    <i class={3<=rate ? "bi bi-star-fill" : "bi bi-star"} onClick={()=>setRate(3)}></i>
+                    <i class={4<=rate ? "bi bi-star-fill" : "bi bi-star"} onClick={()=>setRate(4)}></i>
+                    <i class={5<=rate ? "bi bi-star-fill" : "bi bi-star"} onClick={()=>setRate(5)}></i>
+                    <h1>Ratings: {rate} / 5</h1>
+                </div>
+            )
+        }
+        ReactDOM.render(<Rating />, document.getElementById("root"))
+
+        function Rating1(){
+            var [rate, setRate] = React.useState(null)
+            console.log(rate)
+            return(
+                <div className = "p-5 m-5">
+                    {
+                        [1, 2, 3, 4, 5].map((val)=>{
+                            return <i class={val<=rate ? "bi bi-star-fill" : "bi bi-star"} onClick={()=>setRate(val)}></i>
+                        })
+                    }
+                    <h1>Ratings: {rate} / 5</h1>
+                </div>
+            )
+        }
+        ReactDOM.render(<Rating1 />, document.getElementById("root1"))
+    </script>
+</html>
+<!--
+prop drilling
+
+-->

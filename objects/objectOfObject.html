@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let x = {}
+        y = {name: "Rajendra"}
+        z = {name: "Chary"}
+        x[y] = {name: "Velpuri"}
+        x[z] = {name: "Raju"}  //if we give anethor key then its return object with updated key 
+        console.log(x)
+        console.log(y)
+        console.log(z)
+        console.log(x[y]) //{name: "Raju"}
+
+
+        const a = {name: "Raj", age: 29, city: "Hyd"}
+        const b = {...a, name: "Rajendra"}
+        const {name, ...xyz} = a
+        console.log(xyz, b)  // {age: 29, city: "Hyd"}, {name: "Rajendra", age: 29, city: "Hyd"}
+
+
+        console.log(pq)  //undefined
+        var pq = 100
+
+
+        var xx = `Hello Iam
+                        Rajendra`
+        console.log(xx)
+
+        // useEffect(()=>{
+        //     return ()=>{
+        //         console.log("this is the syntax for unmounting life cycle method")
+        //     }
+        // }, [])
+
+        // console.log(ab)
+        // console.log(ba)  //ba not declared reference error
+        // var ab = ba = 10
+
+        // console.log(zzz)  //zzz not declared reference error
+        // zzz = 100
+
+
+        // const fun = () => {
+        //     console.log(this.name)
+        // }
+        // fun.call({name: "Rajj"})
+
+        var obj = {name: "Rajj"}
+        const fun = (name) => {
+            console.log(this.name)
+        }
+        fun.call(obj, name)
+
+        console.log("8"+6*4)
+
+       // nan===nan & nan==nan
+        
+    </script>
+</body>
+</html>
+<!-- 
+x["y"] = {name: "Rajendra"} means we are inserting an object with the key rederence of y
+when it comes to x[y] = {name: "Velpuri"} we are insering direct object into the x object so in this case the overided object takes place 
+for the above result it returns the latest object that {name: "Raju"} 
+
+
+we already distructured the name from a so remaining values comes in the object
+for b name Rajendra will be over rided insted of Raj because latest will be taken
+
+if var we can undefined because it will initialized with undefined
+insted of var const give you error that is referensial error
+we can not use const variable before initialization
+
+template literals
+we can use template literals for multiline strings
+
+first order function
+
+-->

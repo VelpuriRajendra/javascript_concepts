@@ -1,0 +1,59 @@
+<script>
+    console.log(a)
+    var a = 100   //undefined
+    function test() {
+        var a = 1000
+    }
+    console.log(a)  //100
+    {
+        var a = 1000
+        console.log(a) //1000
+    }
+    console.log(a)  //1000
+
+    // console.log(b) //reference error
+
+    let b = 20
+    let we;
+    console.log(we)
+
+    b = 200
+    console.log(b) //200
+    function test1(){
+        let b = 123
+    }
+            console.log(b)
+    {
+        let b = 2000
+        console.log(b) //2000
+    }
+    console.log(b) //200
+
+    // console.log(c) //reference error
+    const c = 3
+
+    console.log(a)  //undefined
+    console.log(b)  //reference error b is not defined
+    var a = b = 100
+     console.log(a) //100
+    console.log(b)  //100
+
+</script>
+
+<!--
+var
+var is used to declare a variableand it is the global scope or a function scope element
+it can be redeclared and reassigned 
+the variables are hoisted as undefined 
+let
+introduced in the es6
+we can not access the let variables before initialization it is a block scope elemetnt
+it can be reassigned but not be redeclared in the same scope
+variables are hoisted but not access before initialization
+const
+introduced in the es6
+we can not access the const variables before initialization it is a block scope elemetnt
+it must be initialized at the declare time
+it can not be redeclared and reassgined in the same scope but we can update
+objects and arrays declred with const mostly and muted
+-->

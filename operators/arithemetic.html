@@ -1,0 +1,134 @@
+<script>
+
+    //addition (+)
+    //type cast is happening for boolean values
+
+    console.log(true + false + true) //2 true as 1 false as 0
+    console.log(false - true)   //-1
+
+    //subtraction (-)
+    //subtraction will convert the both lhs & rhs into  the nummbers before subtracting
+    //implicit type casting 
+
+    console.log("rajendra" - "chary")  //NaN
+
+    console.log("100" - "50")  //50
+
+    console.log("10" - "2" - "raj")  //NaN
+
+
+    //devided (/)
+
+    var a = 30
+    var b = 4
+    console.log(a / b)  //7.5 / will give us quetient decimal division
+
+    console.log(19 / 4) //4.75 
+
+    console.log(parseInt(19 / 4))  //parseInt is a function will give us only a integir value
+
+    console.log(30.6 / 4)  //7.65 it will consider decimal values also
+
+    console.log(parseInt(30.6 / 4))  //7cnvfhhh
+
+    console.log("raj" / "sai")  //NaN
+
+
+    //modulas (%)
+
+    var aa = 24
+    var bb = 4
+    var cc = aa % bb
+    console.log(cc)  //0 modulas will give you the remainder
+
+    console.log(13 % 4) //1 modulas will give you the remainder
+
+    console.log(30.5 % 4)  //2.5 it will consider decimal values also
+
+    console.log(parseInt(30.6 % 4))  //2
+
+    console.log(9 % 32)  //9
+
+    console.log("raj" % "sai")  //NaN
+
+    //type of
+
+    var t1 = "10"
+    var t2 = 10
+
+    console.log(typeof t1, typeof(t2)) //string, number
+
+    var t3 = parseInt(t1)   //parseInt is used to convert a string to int 
+    console.log(typeof(t3))  //number
+
+    console.log(parseInt("30.5"))   //number 30.5 
+    console.log(parseFloat("300.50")) //number 300.5
+    console.log(typeof(parseInt("20")))  //number
+
+    console.log(Number("30.30"))  //30.3
+    console.log(Number("3030"))   //3030
+
+    console.log(typeof(+"100.23"))  //number
+    console.log(+"100.23")  //number 100.23
+    console.log(100 + -(-"100")) //number 200
+    console.log(10 + +"10") //number 20
+
+
+    var s1 = 100.23
+    console.log(typeof(""+s1))  //string
+    console.log((String(s1)))   //"100.23"
+
+
+    var s2 = new String(s1)
+    console.log(s2.valueOf())  //"100.23"
+
+    var b1 = true
+    console.log(typeof(b1))  //boolean
+    console.log(parseInt(b1)) //NaN
+    console.log(Number(b1))  //1
+
+    var b2 = 1
+    console.log(!b2)  //false
+    console.log(Boolean(b2))  //true
+
+
+    //what is a  type casting?
+    // type casting is nothing but change the data type of a variable into anethor data type
+    //2 types
+        //implicit data type
+        //explicit data type
+    //-, *, /, % are the implicit data type convertes
+    //+ is the concatinator.
+
+    //what is the explixit type casting?
+        //we can change the data type of a variable by manually ot from out side
+
+    //typeof
+    //is used to check the data type of a variable
+
+    //explicit type casting
+    //string - number
+        //we can change the sting to number by using parseInt & parseFloat & Number & unary+
+        //parseInt give you int part & parseFloat give you decimal part too
+        //Number & unary+ will do both int & float work like give us int values & decimal values too
+        //we cna use -(-) to convert also
+
+    //number - string
+        //""+ string concatination, 
+        // String() method,
+        // new string method will give you object from using valueOf method we can get the value
+
+    //booolean - number
+        //parse method could not convert a boolen 
+        //but Number and unary+ will do 
+    //number - booleaa
+        //by using ! we can do
+    
+    //truthy values & falsy values
+        //falsy values
+            //false, 0, null, undefined, "", NaN
+        //truty values
+            //empty array, empty object, empty function
+            //javascript considered as true for above emptys and non-other falsy values
+
+</script>

@@ -1,0 +1,50 @@
+<html>
+    <head>
+        <script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
+        <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+
+        <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    </head>
+    <body>
+        <div id="root"></div>
+        <div id="root1"></div>
+    </body>
+    <script type="text/babel">
+        //with event object
+        function ToggleButton(){
+            var [enable, setEnable] = React.useState(true)
+            function changeFun(ev){
+                console.log(ev.target.checked)
+                setEnable(!ev.target.checked)
+            }
+            return(
+                <div>
+                    <input type="checkbox" onChange={(ev)=>changeFun(ev)}/>:Button enable only checking the check box <br/>
+                    <button disabled = {enable}>Enables only check the check button</button>
+                </div>
+            )
+        }
+        ReactDOM.render(<ToggleButton />, document.getElementById("root"))
+
+
+
+        //without event object
+        function ToggleButton1(){
+            var [enable, setEnable] = React.useState(true)
+            function changeFun(){
+                setEnable(!enable)
+            }
+            return(
+                <div>
+                    <input type="checkbox" onChange={()=>changeFun()}/>:Button enable only checking the check box <br/>
+                    <button disabled = {enable}>Enables only check the check button</button>
+                </div>
+            )
+        }
+        ReactDOM.render(<ToggleButton1 />, document.getElementById("root1"))
+    </script>
+</html>
+<!--
+boolean attributes 
+    checked, disabled
+-->

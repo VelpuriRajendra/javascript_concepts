@@ -1,0 +1,64 @@
+<html>
+
+<head>
+    <script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+</head>
+<script type="text/babel">
+    function Fun() {
+        var [name, setName] = React.useState("")
+        const items = [
+            { name: "Alice Carter", location: "New York, USA" },
+            { name: "Liam Johnson", location: "Toronto, Canada" },
+            { name: "Sophia Martinez", location: "Madrid, Spain" },
+            { name: "Noah Kim", location: "Seoul, South Korea" },
+            { name: "Emma Brown", location: "London, UK" },
+            { name: "Oliver Chen", location: "Beijing, China" },
+            { name: "Ava Patel", location: "Mumbai, India" },
+            { name: "Elijah Rossi", location: "Rome, Italy" },
+            { name: "Isabella Müller", location: "Berlin, Germany" },
+            { name: "Lucas Nguyen", location: "Hanoi, Vietnam" },
+            { name: "Mia Dubois", location: "Paris, France" },
+            { name: "Ethan Silva", location: "São Paulo, Brazil" },
+            { name: "Harper Lee", location: "Sydney, Australia" },
+            { name: "Benjamin Scott", location: "Edinburgh, Scotland" },
+            { name: "Charlotte Davis", location: "Cape Town, South Africa" },
+            { name: "James Wilson", location: "Chicago, USA" },
+            { name: "Amelia Lopez", location: "Mexico City, Mexico" },
+            { name: "Henry Adams", location: "Dublin, Ireland" },
+            { name: "Evelyn Zhang", location: "Shanghai, China" },
+            { name: "William Thompson", location: "Auckland, New Zealand" }
+        ];
+        console.log("This is react component")
+        console.log(name)
+        return (
+            <div>
+                <input name="input" onChange={(ev)=>setName(ev.target.value)}/>
+                <ul>{
+                    items.filter((obj)=>{
+                        return name === "" ? obj : obj.name.includes(name)
+                    }).map((obj)=>(
+                        <li>{obj.name}</li>
+                    ))
+                }</ul>
+            </div>
+        )
+    }
+    ReactDOM.render(<Fun />, document.body)
+</script>
+
+</html>
+
+<!-- if we want to perform react operation in html we can import links first and then babel
+ React is an Object 
+ we can filter the data that include our search name if include then return array and map
+ or w ecan simply return the entire array
+ <input name="input" onChange={(ev)=>setName(ev.target.value)}/>
+                <ul>{
+                    items.filter((obj)=>{
+                        return name === "" ? obj : obj.name.includes(name)
+                    }).map((obj)=>(
+                        <li>{obj.name}</li>
+                    ))
+                }</ul>-->

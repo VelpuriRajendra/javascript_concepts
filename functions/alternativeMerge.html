@@ -1,0 +1,17 @@
+<script>
+    var nmb = "Hello"
+    var str = 12343243523
+    function fun(){
+        var strst = String(str)
+        var nmbstr = String(nmb)
+        var mergeVar = ""
+        for(var i = 0; i < strst.length || i < nmbstr.length; i++){
+            if(strst[i] != undefined)
+                mergeVar += strst[i]
+            if(nmbstr[i] != undefined)
+                mergeVar += nmbstr[i]
+        }
+        return mergeVar
+    }
+    console.log(fun())
+</script>

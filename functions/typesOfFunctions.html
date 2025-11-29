@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function one(){
+            console.log("Helloo iam first function")
+        }
+        one()
+        //Helloo iam first function
+        console.log(one())
+        // Helloo iam first function
+        //undefined
+        var oneRes = one()
+        //Helloo iam first function
+
+
+
+        var two = function(){
+            console.log("Helloo iam second function")
+        }
+        console.log(two())
+        // Helloo iam second function
+        //undefined
+        var twoRes = two()
+        console.log(twoRes)
+        // Helloo iam second function
+        //undefined
+
+
+
+
+        // (function(){
+        //     console.log("Helloo iam anonymous function")
+        // })()
+        //Helloo iam anonymous function
+
+
+
+
+        function Callback(cb, a, b){
+            cb(a+b)
+        }
+        Callback(function(arg){console.log(arg)}, 100, 150) 
+        //250
+
+
+
+
+        function add(a, b){
+            return a+b
+        }
+        console.log(add(10, 15))
+        //25
+
+
+
+        function HigherOrder(fn, a, b){
+            fn(a+b)
+        }
+        HigherOrder(function(val){console.log(val)}, 100, 100)
+        //200
+
+
+        function HOC(name){
+            console.log(`Helloo ${name}`)
+        }
+        function HOC1(fn, name){
+            return fn(name)
+        }
+        HOC1(HOC, "Rajendra")
+        //Helloo Rajendra
+
+
+        setTimeout(()=>{console.log("Helloo iam settimeout")}, 0)
+
+
+        fetch('https://fakestoreapi.com/users')
+        .then((res)=>res.json())
+        .then((data)=>console.log(data))
+        //data
+
+
+        
+        var val = 0
+        var clearTm = setInterval(()=>{
+            val ++
+           console.log("Iam setInterval")
+           if(val == 10){
+             console.log("Iam setInterval stopped")
+             clearInterval(clearTm)
+           }
+        }, 1000)
+
+
+
+        setTimeout(()=>{console.log("Helloo iam settimeout")}, 2000)
+
+        // setImmediate(()=>{console.log("aim set immeditate")})
+
+
+        async function Asfun(a, b){
+            return a+b
+        }
+        console.log(Asfun(10, 10))
+        //it will execute first and returned a promise
+        Asfun(10, 11).then((res)=>console.log(res))
+        //20
+
+
+        async function Asfun(){
+            console.log("iam async function")
+        }
+        Asfun()
+        //iam async function
+        console.log(Asfun())
+        //a promise 
+
+
+        let details;
+        async function Getfun() {
+            console.log(details)
+            const val = await fetch("https://fakestoreapi.com/users")
+            const data = await val.json()
+            details = data
+            console.log(details)
+        }
+        Getfun()
+        //unedfined
+        //data
+        console.log(Getfun())
+
+
+        async function FetchCall(){
+            fetch("https://fakestoreapi.com/users")
+            .then((res)=>res.json())
+            .then((data)=>console.log(data))
+            return "data"
+        }
+        console.log(FetchCall())
+        //promise
+        //data
+
+
+        async function FetchCallO(){
+            let details;
+            fetch("https://fakestoreapi.com/users")
+            .then((res)=>res.json())
+            .then((data)=>details = data)
+            console.log(details)
+        }
+        FetchCallO()
+        //undefined because sync code execute first
+        
+
+        let Arrowfun = async () => {
+            console.log("iam arrow async function")
+        }
+       Arrowfun().then((data)=>console.log(data))
+       //iam arrow async function
+       //undefined
+
+       process.nextTick(()=>{console.log("am available only in node js")})
+
+
+       Promise.resolve().then(()=>{console.log("iam basic promise")}) 
+
+
+       var pro = new Promise((res, rep)=>{
+        res("iam resolve block")
+       })
+       console.log(pro)
+       //returns a promise
+       pro.then((dd)=>console.log(dd))
+
+       function promFun(){
+        return Promise.resolve("iam peomise return in the function")
+       }
+       console.log(promFun())
+       //it is a promise
+
+       function promFetch(){
+        var pro = new Promise((respo, reje)=>{
+            fetch("https://fakestoreapi.com/users")
+        .then((res)=>res.json)
+        .then((data)=>respo(data))
+        })
+        return pro
+       }
+       console.log(promFetch())
+
+       setTimeout(() => {
+        console.log("global timeout")
+       }, 3000);
+
+       async function sss(){
+        setTimeout(() => {
+        console.log("inside sss timeout")
+       }, 2500);
+       await setTimeout(() => {
+        console.log("inside sss await timeout")
+       }, 3500);
+       }
+       sss()
+
+    
+
+
+
+
+
+
+
+    for(var i = 0; i < 999; i++){
+        console.log(2)
+    }
+    setTimeout(()=>{
+        console.log("Heeloo")
+    }, 0)
+
+
+    console.log(NaN == NaN) //false
+    console.log(NaN === NaN) //false
+    console.log(typeof NaN)  //number
+    console.log(NaN + NaN) //NaN
+    
+    console.log(null == null) //true
+    console.log(null === null) //true
+    console.log(typeof null) //object
+    console.log(null + null)  //0 
+
+    console.log(undefined == undefined) //true 
+    console.log(undefined === undefined) //true
+    console.log(typeof undefined) //undefined
+    console.log(undefined + undefined) //NaN
+
+      
+    </script>
+</body>
+</html>
